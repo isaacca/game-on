@@ -3,10 +3,9 @@
 Plugin Name: Game-On
 Plugin URI: http://maclab.guhsd.net/game-on
 Description: Gamification tools for teachers.
-Authors: Ezio Ballarin, Forest Hoffman, Austin Vuong, Charles Leon
-Previous Authors: Semar Yousif, Vincent Astolfi
+Author: Authors: Ezio Ballarin, Forest Hoffman, Austin Vuong, Charles Leon; Previous Authors: Semar Yousif, Vincent Astolfi
 Author URI: http://maclab.guhsd.net/
-Version: 2.4.4
+Version: 2.4.6
 */
 
 include( 'go_datatable.php' );
@@ -29,6 +28,7 @@ include( 'go_definitions.php' );
 include( 'go_mail.php' );
 include( 'go_messages.php' );
 include( 'go_task_search.php' );
+include( 'go_constants.php' );
 register_activation_hook( __FILE__, 'go_table_totals' );
 register_activation_hook( __FILE__, 'go_table_individual' );
 register_activation_hook( __FILE__, 'go_ranks_registration' );
@@ -199,7 +199,8 @@ function go_admin_head_notification() {
 	if ( get_option( 'go_display_admin_explanation' ) && current_user_can( 'manage_options' ) ) {
 		$plugin_data = get_plugin_data( __FILE__, false, false );
 		$plugin_version = $plugin_data['Version'];
-		echo "<div id='message' class='update-nag' style='font-size: 16px;'>This is a fresh installation of Game On (version <a href='https://github.com/TheMacLab/game-on/releases/tag/v{$plugin_version}' target='_blank'>{$plugin_version}</a>).<br/>Watch <a href='javascript:;'  onclick='go_display_help_video(&quot;http://maclab.guhsd.net/go/video/gameOn.mp4&quot;);' style='display:inline-block;'>this short video</a> for important information.<br/>Or visit the <a href='http://maclab.guhsd.net/game-on' target='_blank'>documentation page</a>.<br/><a href='javascript:;' onclick='go_remove_admin_notification()'>Dismiss messsage</a></div>";
+		$help_video_url = go_get_help_video_url('go_introduction_help');
+		echo "<div id='message' class='update-nag' style='font-size: 16px;'>This is a fresh installation of Game On (version <a href='https://github.com/TheMacLab/game-on/releases/tag/v{$plugin_version}' target='_blank'>{$plugin_version}</a>).<br/>Watch <a href='javascript:;'  onclick='go_display_help_video(&quot;{$help_video_url}&quot;);' style='display:inline-block;'>this short video</a> for important information.<br/>Or visit the <a href='http://maclab.guhsd.net/game-on' target='_blank'>documentation page</a>.<br/><a href='javascript:;' onclick='go_remove_admin_notification()'>Dismiss messsage</a></div>";
 		echo "<script>
 			function go_remove_admin_notification() {
 				jQuery.ajax( {

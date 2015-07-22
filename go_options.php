@@ -80,34 +80,34 @@ if ( is_admin() ) {
 			?>
 			<div id='go_options_admin_email_wrap' class='go_options_wrap'>
 			<?php
-			go_options_input( 'Admin Email','text', 'go_admin_email', 'http://maclab.guhsd.net/go/video/options/adminEmail.mp4', 'IMPORTANT: Enter your email and click the Save Options button' );
+			go_options_input( 'Admin Email','text', 'go_admin_email', go_get_help_video_url('go_admin_email_help'), 'IMPORTANT: Enter your email and click the Save Options button' );
 			?>
 			</div>
-             <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/namingConventions.mp4', 'Customize the names used for tasks, points, currency, etc.' ); ?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+             <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( go_get_help_video_url('go_naming_conventions'), 'Customize the names used for tasks, points, currency, etc.' ); ?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
              	<div id='go_options_naming_conventions_wrap' class='go_options_wrap'>
              		<?php 
-						go_options_field( 'Tasks', 2, array( 1 => 'go_tasks_name', 2 => 'go_tasks_plural_name' ), 'http://maclab.guhsd.net/go/video/options/tasks.mp4', 'Name your assignments' ); 
-						go_options_field( 'Stages', 5, array( 1 => 'go_first_stage_name', 2 => 'go_second_stage_name', 3 => 'go_third_stage_name', 4 => 'go_fourth_stage_name', 5 => 'go_fifth_stage_name' ), 'http://maclab.guhsd.net/go/video/options/stages.mp4', 'Name the steps within your assignments' );
-						go_options_field( 'Stage Buttons', 5, array( 1 => 'go_abandon_stage_button', 2 => 'go_second_stage_button', 3 => 'go_third_stage_button', 4 => 'go_fourth_stage_button', 5 => 'go_fifth_stage_button' ), 'http://maclab.guhsd.net/go/video/options/stageButtons.mp4', 'Name the buttons associated with each step in your assignments' );
-						go_options_field( 'Store', 1, array( 1 => 'go_store_name' ), 'http://maclab.guhsd.net/go/video/options/store.mp4', 'Name the store (independent of store page title)' );
-						go_options_field( 'Task Loot', 1, array( 1 => 'go_task_loot_name' ), 'http://maclab.guhsd.net/go/video/options/taskLoot.mp4', 'Name the loot that has 100% rarity rewarded for task mastery' );
-						go_options_field( 'Bonus Loot', 1, array( 1 => 'go_bonus_loot_name' ), 'http://maclab.guhsd.net/go/video/options/bonusLoot.mp4', 'Name the rare loot rewarded for task mastery' );
-						go_options_field( 'Points', 3, array( 1 => 'go_points_name', 2 => 'go_points_prefix', 3 => 'go_points_suffix' ), 'http://maclab.guhsd.net/go/video/options/points.mp4', 'Name your points system (used for leveling)' );
-						go_options_field( 'Currency', 3, array( 1 => 'go_currency_name', 2 => 'go_currency_prefix', 3 => 'go_currency_suffix' ), 'http://maclab.guhsd.net/go/video/options/currency.mp4', 'Name your virtual currency (used to purchase goods in the store)' );
-						go_options_field( 'Bonus', 3, array( 1 => 'go_bonus_currency_name', 2 => 'go_bonus_currency_prefix', 3 => 'go_bonus_currency_suffix' ), 'http://maclab.guhsd.net/go/video/options/bonus.mp4', 'Name your bonus mechanism' );
-						go_options_field( 'Penalty', 3, array( 1 => 'go_penalty_name', 2 => 'go_penalty_prefix', 3 => 'go_penalty_suffix' ), 'http://maclab.guhsd.net/go/video/options/penalty.mp4', 'Name your penalty mechanism' );
-						go_options_field( 'Minutes', 3, array( 1 => 'go_minutes_name', 2 => 'go_minutes_prefix', 3 => 'go_minutes_suffix' ), 'http://maclab.guhsd.net/go/video/options/minutes.mp4', 'Name your timing mechanism' );
-						go_options_field( 'Ranks', 2, array( 1 => 'go_level_names', 2 => 'go_level_plural_names' ),'http://maclab.guhsd.net/go/video/options/ranks.mp4', 'Name your leveling system' );
-						go_options_field( 'Classifications', 3, array( 1 => 'go_organization_name', 2 => 'go_class_a_name', 3 => 'go_class_b_name' ),'http://maclab.guhsd.net/go/video/options/classifications.mp4', 'Name your classroom management system' );
-						go_options_field( 'Focus', 1, array( 1 => 'go_focus_name' ),'http://maclab.guhsd.net/go/video/options/focus.mp4', 'Name your sub-groups' );
-						go_options_field( 'Stats', 1, array( 1 => 'go_stats_name' ), 'http://maclab.guhsd.net/go/video/options/stats.mp4', 'Name your data display mechanism' );
-						go_options_field( 'Inventory', 1, array( 1 => 'go_inventory_name' ), 'http://maclab.guhsd.net/go/video/options/inventory.mp4', 'Name your purchased items category' );
-						go_options_field( 'Badges', 1, array( 1 => 'go_badges_name' ), 'http://maclab.guhsd.net/go/video/options/badges.mp4', 'Name your badging system' );
-						go_options_field( 'Leaderboard', 1, array( 1 => 'go_leaderboard_name' ), 'http://maclab.guhsd.net/go/video/options/leaderboard.mp4', 'Name your leaderboard' );
+						go_options_field( 'Tasks', 2, array( 1 => 'go_tasks_name', 2 => 'go_tasks_plural_name' ), go_get_help_video_url('go_tasks_help'), 'Name your assignments' ); 
+						go_options_field( 'Stages', 5, array( 1 => 'go_first_stage_name', 2 => 'go_second_stage_name', 3 => 'go_third_stage_name', 4 => 'go_fourth_stage_name', 5 => 'go_fifth_stage_name' ), go_get_help_video_url('go_stages_help'), 'Name the steps within your assignments' );
+						go_options_field( 'Stage Buttons', 5, array( 1 => 'go_abandon_stage_button', 2 => 'go_second_stage_button', 3 => 'go_third_stage_button', 4 => 'go_fourth_stage_button', 5 => 'go_fifth_stage_button' ), go_get_help_video_url('go_stages_buttons_help'), 'Name the buttons associated with each step in your assignments' );
+						go_options_field( 'Store', 1, array( 1 => 'go_store_name' ), go_get_help_video_url('go_settings_store_help'), 'Name the store (independent of store page title)' );
+						go_options_field( 'Task Loot', 1, array( 1 => 'go_task_loot_name' ), go_get_help_video_url('go_loot_help'), 'Name the loot that has 100% rarity rewarded for task mastery' );
+						go_options_field( 'Bonus Loot', 1, array( 1 => 'go_bonus_loot_name' ), go_get_help_video_url('go_bonus_loot_help'), 'Name the rare loot rewarded for task mastery' );
+						go_options_field( 'Points', 3, array( 1 => 'go_points_name', 2 => 'go_points_prefix', 3 => 'go_points_suffix' ), go_get_help_video_url('go_points_help'), 'Name your points system (used for leveling)' );
+						go_options_field( 'Currency', 3, array( 1 => 'go_currency_name', 2 => 'go_currency_prefix', 3 => 'go_currency_suffix' ), go_get_help_video_url('go_money_help'), 'Name your virtual currency (used to purchase goods in the store)' );
+						go_options_field( 'Bonus', 3, array( 1 => 'go_bonus_currency_name', 2 => 'go_bonus_currency_prefix', 3 => 'go_bonus_currency_suffix' ), go_get_help_video_url('go_bonus_help'), 'Name your bonus mechanism' );
+						go_options_field( 'Penalty', 3, array( 1 => 'go_penalty_name', 2 => 'go_penalty_prefix', 3 => 'go_penalty_suffix' ), go_get_help_video_url('go_penalty_help'), 'Name your penalty mechanism' );
+						go_options_field( 'Minutes', 3, array( 1 => 'go_minutes_name', 2 => 'go_minutes_prefix', 3 => 'go_minutes_suffix' ), go_get_help_video_url('go_minutes_help'), 'Name your timing mechanism' );
+						go_options_field( 'Ranks', 2, array( 1 => 'go_level_names', 2 => 'go_level_plural_names' ),go_get_help_video_url('go_ranks_help'), 'Name your leveling system' );
+						go_options_field( 'Classifications', 3, array( 1 => 'go_organization_name', 2 => 'go_class_a_name', 3 => 'go_class_b_name' ),go_get_help_video_url('go_classifications_help'), 'Name your classroom management system' );
+						go_options_field( 'Focus', 1, array( 1 => 'go_focus_name' ),go_get_help_video_url('go_focus_help'), 'Name your sub-groups' );
+						go_options_field( 'Stats', 1, array( 1 => 'go_stats_name' ), go_get_help_video_url('go_stats_help'), 'Name your data display mechanism' );
+						go_options_field( 'Inventory', 1, array( 1 => 'go_inventory_name' ), go_get_help_video_url('go_inventory_help'), 'Name your purchased items category' );
+						go_options_field( 'Badges', 1, array( 1 => 'go_badges_name' ), go_get_help_video_url('go_badges_help'), 'Name your badging system' );
+						go_options_field( 'Leaderboard', 1, array( 1 => 'go_leaderboard_name' ), go_get_help_video_url('go_leaderboard_help'), 'Name your leaderboard' );
 						
 					?>
                 </div>
-             <div class='go_options_accordion_wrap' opt='1'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/lootPresets.mp4', 'Customize rewards earned within your game' ); ?><div class='go_options_accordion'>Loot Presets<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+             <div class='go_options_accordion_wrap' opt='1'><?php go_options_accordion_help( go_get_help_video_url('go_loot_presets_help'), 'Customize rewards earned within your game' ); ?><div class='go_options_accordion'>Loot Presets<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_loot_presets_wrap' class='go_options_wrap'>
 					<?php
 						$presets = get_option( 'go_presets',false );
@@ -117,7 +117,7 @@ if ( is_admin() ) {
 								if ( $first == 1 ) {
 								?>
 								<div id='go_options_preset_name_wrap'>
-									<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Preset Name<?php go_options_help( 'http://maclab.guhsd.net/go/video/options/presetName.mp4', 'Name your assignments (by difficulty, time required, etc.)' ); ?></span></div>
+									<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Preset Name<?php go_options_help( go_get_help_video_url('go_loot_presets_names'), 'Name your assignments (by difficulty, time required, etc.)' ); ?></span></div>
 									<div id='go_options_preset_name'></div>
 								</div>
 								<?php } ?>
@@ -130,7 +130,7 @@ if ( is_admin() ) {
 								if ( $first == 1 ) {
 								?>
 								<div id='go_options_preset_points_wrap'>
-									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_points_name' ); go_options_help( 'http://maclab.guhsd.net/go/video/options/presetPoints.mp4', 'Set your point values' ); ?></span></div>
+									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_points_name' ); go_options_help( go_get_help_video_url('go_loot_presets_points'), 'Set your point values' ); ?></span></div>
 									<div id='go_options_preset_points'></div>
 								</div>
 								<?php 
@@ -147,7 +147,7 @@ if ( is_admin() ) {
 								if ( $first == 1 ) {
 								?>
 								<div id='go_options_preset_currency_wrap'>
-									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_currency_name' ); go_options_help( 'http://maclab.guhsd.net/go/video/options/presetCurrency.mp4', 'Set your currency values' ); ?></span></div>
+									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_currency_name' ); go_options_help( go_get_help_video_url('go_loot_presets_money'), 'Set your currency values' ); ?></span></div>
 									<div id='go_options_preset_currency'></div>
 								</div>
 								<?php 
@@ -163,28 +163,28 @@ if ( is_admin() ) {
 					
 					?>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/addPreset.mp4','Add or subtract tiers' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_add_preset_help'),'Add or subtract tiers' ); ?></span></div>
 						<button type="button"  class='go_add_preset'>+</button>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/resetPresets.mp4','Revert to default presets' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_revert_presets_help'),'Revert to default presets' ); ?></span></div>
 						<button type="button" id='go_reset_presets' class='go_options_button'>Reset Presets</button>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/savePresets.mp4','Save changes to loot presets' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_save_presets_help'),'Save changes to loot presets' ); ?></span></div>
 						<button type="button" id='go_save_presets' class='go_options_button'>Save Presets</button>
 					</div>
 				</div>
-			 <div class='go_options_accordion_wrap' opt='2'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/adminBar.mp4', 'Options for the Admin Bar ' ); ?><div class='go_options_accordion'>Admin Bar<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='2'><?php go_options_accordion_help( go_get_help_video_url('go_admin_bar_help'), 'Options for the Admin Bar ' ); ?><div class='go_options_accordion'>Admin Bar<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_admin_bar_wrap' class='go_options_wrap'>
 					<?php 
-					go_options_input( 'Display', 'checkbox', 'go_admin_bar_display_switch', 'http://maclab.guhsd.net/go/video/options/adminBarDisplay.mp4', 'Show login option in admin bar (recommended)' );
-					go_options_input( 'User Redirect', 'checkbox', 'go_admin_bar_user_redirect', 'http://maclab.guhsd.net/go/video/options/userRedirect.mp4', 'Send users to home page after login (recommended)' );
-					go_options_input( 'Add Switch', 'checkbox', 'go_admin_bar_add_switch', 'http://maclab.guhsd.net/go/video/options/adminBarAddSwitch.mp4', 'Activate the manual scoring system (not recommended)' );
-					go_options_input( 'Minutes Only', 'checkbox', 'go_admin_bar_add_minutes_switch', 'http://maclab.guhsd.net/go/video/options/adminBarAddMinutesOnly.mp4', 'SAMPLE TEXT' );
+					go_options_input( 'Display', 'checkbox', 'go_admin_bar_display_switch', go_get_help_video_url('go_admin_bar_help'), 'Show login option in admin bar (recommended)' );
+					go_options_input( 'User Redirect', 'checkbox', 'go_admin_bar_user_redirect', go_get_help_video_url('go_admin_bar_redirect_help'), 'Send users to home page after login (recommended)' );
+					go_options_input( 'Add Switch', 'checkbox', 'go_admin_bar_add_switch', go_get_help_video_url('go_admin_bar_add_help'), 'Activate the manual scoring system (not recommended)' );
+					go_options_input( 'Minutes Only', 'checkbox', 'go_admin_bar_add_minutes_switch', go_get_help_video_url('go_admin_bar_add_minutes_help'), 'SAMPLE TEXT' );
 					?>
 				</div>
-			 <div class='go_options_accordion_wrap' opt='3'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/levels.mp4', 'Customize names, numbers, and award badges' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_level_plural_names' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='3'><?php go_options_accordion_help( go_get_help_video_url('go_levels_help'), 'Customize names, numbers, and award badges' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_level_plural_names' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_levels_wrap' class='go_options_wrap'>
 					<?php
 					$ranks = get_option( 'go_ranks',false );
@@ -194,7 +194,7 @@ if ( is_admin() ) {
 						if ( ! empty( $ranks['name'] ) ) {
 							?>
 							<div id='go_options_level_names_wrap'>
-								<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Preset Name <?php go_options_help( 'http://maclab.guhsd.net/go/video/options/levelName.mp4','Name your individual levels' ); ?></span></div>
+								<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Preset Name <?php go_options_help( go_get_help_video_url('go_levels_name_help'),'Name your individual levels' ); ?></span></div>
 								<div id='go_options_level_names'>
 							<?php				
 							foreach ( $ranks['name'] as $key => $name ) {
@@ -213,7 +213,7 @@ if ( is_admin() ) {
 								if ( $first == 1 ) {
 									?>
 									<div id='go_options_level_points_wrap'>
-										<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_points_name' ); go_options_help( 'http://maclab.guhsd.net/go/video/options/levelPoints.mp4','Establish thresholds for each level. IMPORTANT: The first level must be set to 0 (zero)' ); ?></span></div>
+										<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo get_option( 'go_points_name' ); go_options_help( go_get_help_video_url('go_levels_points_help'),'Establish thresholds for each level. IMPORTANT: The first level must be set to 0 (zero)' ); ?></span></div>
 										<div id='go_options_level_points'></div>
 									</div>
 									<?php 
@@ -232,7 +232,7 @@ if ( is_admin() ) {
 								if ( $first == 1 ) {
 								?>
 								<div id='go_options_level_badges_wrap'>
-									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo go_return_options( 'go_badges_name' ); go_options_help( 'http://maclab.guhsd.net/go/video/options/levelBadges.mp4','Award badges when players reach certain levels' ); ?></span></div>
+									<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo go_return_options( 'go_badges_name' ); go_options_help( go_get_help_video_url('go_levels_badges_help'),'Award badges when players reach certain levels' ); ?></span></div>
 									<div id='go_options_level_badges'></div>
 								</div>
 								<?php 
@@ -247,23 +247,23 @@ if ( is_admin() ) {
 					}
 					?>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/addLevel.mp4','Add or subtract levels' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_add_level_help'),'Add or subtract levels' ); ?></span></div>
 						<button type="button"  class='go_add_level'>+</button>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/resetLevels.mp4','Revert to default presets' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_reset_level_help'),'Revert to default presets' ); ?></span></div>
 						<button type="button" id='go_reset_levels' class='go_options_button'>Reset <?php echo $plural_rank_name; ?></button>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/saveLevels.mp4','Save changes to level presets' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_levels_save_help'),'Save changes to level presets' ); ?></span></div>
 						<button type="button" id='go_save_levels' class='go_options_button'>Save <?php echo $plural_rank_name; ?></button>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/fixLevels.mp4','Repair errors caused by improper level settings' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_fix_levels_help'),'Repair errors caused by improper level settings' ); ?></span></div>
 						<button type="button" id='go_fix_levels' class='go_options_button'>Fix <?php echo $plural_rank_name; ?></button>
 					</div>
 				</div>
-			 <div class='go_options_accordion_wrap' opt='4'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/seatingChart.mp4', 'Customize user info to suit your needs' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_organization_name' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='4'><?php go_options_accordion_help( go_get_help_video_url('go_seating_help'), 'Customize user info to suit your needs' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_organization_name' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_seating_chart_wrap' class='go_options_wrap'>
 					<?php
 					$class_a = get_option( 'go_class_a' );
@@ -272,7 +272,7 @@ if ( is_admin() ) {
 					$computer_name = get_option( 'go_class_b_name' );
 					?>
 					<div id='go_options_periods_wrap'>
-                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $period_name; go_options_help( 'http://maclab.guhsd.net/go/video/options/periods.mp4','Name the first sorting method' ); ?></span></div>							
+                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $period_name; go_options_help( go_get_help_video_url('go_periods_help'),'Name the first sorting method' ); ?></span></div>							
                         <div id='go_options_periods'>
 					<?php
 					foreach ( $class_a as $key => $period ) {
@@ -284,11 +284,11 @@ if ( is_admin() ) {
 						</div>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/addPeriod.mp4','Add or subtract first sorting settings' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_add_period_help'),'Add or subtract first sorting settings' ); ?></span></div>
 						<button type="button"  class='go_add_period'>+</button>
 					</div>
 					<div id='go_options_computers_wrap'>
-                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $computer_name; go_options_help( 'http://maclab.guhsd.net/go/video/options/computers.mp4','Name the second sorting method' ); ?></span></div>
+                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $computer_name; go_options_help( go_get_help_video_url('go_computer_help'),'Name the second sorting method' ); ?></span></div>
                         <div id='go_options_computers'>
 					<?php
 					foreach ( $class_b as $key => $computer ) {
@@ -300,14 +300,14 @@ if ( is_admin() ) {
 						</div>
 					</div>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( 'http://maclab.guhsd.net/go/video/options/addComputer.mp4','Add or subtract second sorting settings' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php go_options_help( go_get_help_video_url('go_add_computer_help'),'Add or subtract second sorting settings' ); ?></span></div>
 						<button type="button" class='go_add_computer'>+</button>
 					</div>
 				</div>
-			 <div class='go_options_accordion_wrap' opt='5'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/profession.mp4', 'Optional grouping system' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_focus_name' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='5'><?php go_options_accordion_help( go_get_help_video_url('go_profession_help'), 'Optional grouping system' ); ?><div class='go_options_accordion'><?php echo go_return_options( 'go_focus_name' ); ?><div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_profession_wrap' class='go_options_wrap'>
 					<?php
-					go_options_input( 'Setting', 'checkbox', 'go_focus_switch','http://maclab.guhsd.net/go/video/options/professionSwitch.mp4', 'Enable groups (off by default)' );
+					go_options_input( 'Setting', 'checkbox', 'go_focus_switch',go_get_help_video_url('go_profession_switch_help'), 'Enable groups (off by default)' );
 					$focuses = get_option( 'go_focus' );
 					$first = 1;
 					if ( is_array( $focuses ) && ! empty( $focuses ) ) {
@@ -315,7 +315,7 @@ if ( is_admin() ) {
 							if ( $first == 1 ) {
 							?>
 							<div id='go_options_professions_names_wrap'>
-								<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Name<?php go_options_help( 'http://maclab.guhsd.net/go/video/options/professionName.mp4','Name and add or subtract groups' ); ?></span></div>
+								<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Name<?php go_options_help( go_get_help_video_url('go_profession_name_help'),'Name and add or subtract groups' ); ?></span></div>
 								<div id='go_options_professions'></div>
 							</div>
 							<?php
@@ -328,7 +328,7 @@ if ( is_admin() ) {
 					} else {
 					?>
 						<div id='go_options_professions_names_wrap'>
-							<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Name<?php go_options_help( 'http://maclab.guhsd.net/go/video/options/professionName.mp4','Name and add or subtract groups' ); ?></span></div>
+							<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Name<?php go_options_help( go_get_help_video_url('go_profession_name_help'),'Name and add or subtract groups' ); ?></span></div>
 							<div id='go_options_professions'></div>
 						</div>
 						<input type='text' class='go_options_profession_input' name='go_focus[]' value=''/>
@@ -336,19 +336,20 @@ if ( is_admin() ) {
 					}
 					?>
 				</div>
-			 <div class='go_options_accordion_wrap' opt='6'><?php go_options_accordion_help( 'http://maclab.guhsd.net/go/video/options/additionalSettings.mp4', 'Extra custom settings and tools' ); ?><div class='go_options_accordion'>Additional Settings<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='6'><?php go_options_accordion_help( go_get_help_video_url('go_additional_settings_help'), 'Extra custom settings and tools' ); ?><div class='go_options_accordion'>Additional Settings<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_additional_settings_wrap' class='go_options_wrap'>
 					<?php 
-					go_options_field( 'Video Default', 2, array( 1 => 'go_video_width', 2 => 'go_video_height' ), 'http://maclab.guhsd.net/go/video/options/videoDefault.mp4', 'Set your default video size' );
-					go_options_input( 'From Email Address', 'text', 'go_email_from', 'http://maclab.guhsd.net/go/video/options/emailFrom.mp4', 'Set the "from" address of the store and file-uploader emails (default: "no-reply@go.net" )' );
-					go_options_input( 'Store Receipts', 'checkbox', 'go_store_receipt_switch', 'http://maclab.guhsd.net/go/video/options/storeReceipt.mp4', 'Receive email notification for each store purchase (off by default)' );
-					go_options_input( 'Full Student Name', 'checkbox', 'go_full_student_name_switch', 'http://maclab.guhsd.net/go/video/options/fullStudentName.mp4', 'Display only first name and last initial (default)' );
-					go_options_input(get_option( 'go_bonus_currency_name', 'Bonus' ), 'checkbox', 'go_multiplier_switch', 'http://maclab.guhsd.net/go/video/options/multiplier.mp4', 'Enable bonus mechanism to boost rewards' );
-					go_options_input(get_option( 'go_bonus_currency_name', 'Bonus' ).' Threshold', 'text', 'go_multiplier_threshold', 'http://maclab.guhsd.net/go/video/options/multiplierThreshold.mp4', 'Number of bonus points required to boost rewards' );
-					go_options_input(go_return_options( 'go_penalty_name' ), 'checkbox', 'go_penalty_switch', 'http://maclab.guhsd.net/go/video/options/penalty2.mp4', 'Enable penalty mechanism to reduce rewards' );
-					go_options_input(go_return_options( 'go_penalty_name' ).' Threshold', 'text', 'go_penalty_threshold', 'http://maclab.guhsd.net/go/video/options/penaltyThreshold.mp4', 'Number of penalty points required to reduce rewards' );
-					go_options_input( 'Multiplier %', 'text', 'go_multiplier_percentage', 'http://maclab.guhsd.net/go/video/options/multiplierPercentage.mp4', 'Percentage of rewards awarded or deducted at each threshold' );
-					go_options_input( 'Data Reset', 'checkbox', 'go_data_reset_switch', 'http://maclab.guhsd.net/go/video/options/dataReset.mp4', 'Clear all user data for specific categories DANGER!' );
+					go_options_field( 'Video Default', 2, array( 1 => 'go_video_width', 2 => 'go_video_height' ), go_get_help_video_url('go_video_size_help'), 'Set your default video size' );
+					go_options_input( 'From Email Address', 'text', 'go_email_from', go_get_help_video_url('go_email_from_help'), 'Set the "from" address of the store and file-uploader emails (default: "no-reply@go.net" )' );
+					go_options_input( 'Store Receipts', 'checkbox', 'go_store_receipt_switch', go_get_help_video_url('go_confirmation_help'), 'Receive email notification for each store purchase (off by default)' );
+					go_options_input( 'Full Student Name', 'checkbox', 'go_full_student_name_switch', go_get_help_video_url('go_full_name_help'), 'Display only first name and last initial (default)' );
+					go_options_input(get_option( 'go_bonus_currency_name', 'Bonus' ), 'checkbox', 'go_multiplier_switch', go_get_help_video_url('go_multiplier_help'), 'Enable bonus mechanism to boost rewards' );
+					go_options_input(get_option( 'go_bonus_currency_name', 'Bonus' ).' Threshold', 'text', 'go_multiplier_threshold', go_get_help_video_url('go_multiplier_threshold_help'), 'Number of bonus points required to boost rewards' );
+					go_options_input(go_return_options( 'go_penalty_name' ), 'checkbox', 'go_penalty_switch', go_get_help_video_url('go_penalty_mechanism_help'), 'Enable penalty mechanism to reduce rewards' );
+					go_options_input(go_return_options( 'go_penalty_name' ).' Threshold', 'text', 'go_penalty_threshold', go_get_help_video_url('go_penalty_threshold_help'), 'Number of penalty points required to reduce rewards' );
+					go_options_input( 'Multiplier %', 'text', 'go_multiplier_percentage', go_get_help_video_url('go_multiplier_percentage_help'), 'Percentage of rewards awarded or deducted at each threshold' );
+					go_options_input('Non-YouTube Help', 'checkbox', 'go_use_maclab_help', go_get_help_video_url('go_use_non_youtube_help'), 'Load help videos from a non-YouTube source (for people behind YouTube filters - not recommended unless requiered).');
+					go_options_input( 'Data Reset', 'checkbox', 'go_data_reset_switch', go_get_help_video_url('go_reset_everything_help'), 'Clear all user data for specific categories DANGER!' );
 					go_options_input(go_return_options( 'go_points_name' ), 'checkbox', 'go_data_reset_points', '', null, false, 'points' );
 					go_options_input(go_return_options( 'go_currency_name' ), 'checkbox', 'go_data_reset_currency', '', null, false, 'currency' );
 					go_options_input(go_return_options( 'go_bonus_currency_name' ), 'checkbox', 'go_data_reset_bonus_currency', '', null, false, 'bonus_currency' );
@@ -358,13 +359,13 @@ if ( is_admin() ) {
 					go_options_input( 'All', 'checkbox', 'go_data_reset_all', '', null, false );
 					?>
 					<div class='go_options'>
-						<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Reset <?php go_options_help( 'http://maclab.guhsd.net/go/video/options/dataReset2.mp4', 'Clear all user data for specific categories DANGER!' ); ?></span></div>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'>Reset <?php go_options_help( go_get_help_video_url('go_reset_everything_2_help'), 'Clear all user data for specific categories DANGER!' ); ?></span></div>
 						<button type="button" id='go_data_reset'>Go</button>
 					</div>
 				</div>
 			<input type="submit" name="Submit" value="Save Options" />
 			<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_data_reset_switch"/>
+			<input type="hidden" name="page_options" value="go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_use_maclab_help, go_data_reset_switch"/>
         </form>
         </div>
         <?php	
@@ -788,7 +789,7 @@ function go_save_extra_profile_fields( $user_id ) {
 function go_update_globals() {
 	global $wpdb;
 	$file_name = $real_file = plugin_dir_path( __FILE__ ) . '/' . 'go_definitions.php';
-	$array = explode( ',', 'go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_data_reset_switch' );
+	$array = explode( ',', 'go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_use_maclab_help, go_data_reset_switch' );
 	$string = '';
 	foreach ( $array as $key => $value ) {
 		$value = trim( $value );

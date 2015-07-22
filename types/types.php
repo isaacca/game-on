@@ -27,79 +27,79 @@ function go_mta_con_meta( array $meta_boxes ) {
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 			array(
-				'name' => 'Presets'.go_task_opt_help( 'presets', 'SAMPLE TEXT HELLO WORLD HOW ARE YOU DOING TODAY THIS IS GREAT', 'http://maclab.guhsd.net/go/video/quests/presets.mp4' ),
+				'name' => 'Presets'.go_task_opt_help( 'presets', '', go_get_help_video_url('go_presets_help') ),
 				'id'   => 'go_presets',
 				'type' => 'go_presets',
 			),
 			array(
-				'name' => go_task_opt_help( 'advanced_settings', '', 'http://maclab.guhsd.net/go/video/quests/advancedSettings.mp4' ),
+				'name' => go_task_opt_help( 'advanced_settings', '', go_get_help_video_url('go_advanced_quest_settings_help') ),
 				'id' => 'advanced_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Advanced Settings',
 				'settings_id' => 'go_advanced_task_settings_accordion'
 			),
 			array(
-				'name' => 'Required Rank '.go_task_opt_help( 'req_rank', '', 'http://maclab.guhsd.net/go/video/quests/requiredRank.mp4' ),
+				'name' => 'Required Rank '.go_task_opt_help( 'req_rank', '', go_get_help_video_url('go_quest_rank_help') ),
 				'id'   => "{$prefix}req_rank",
 				'type' => 'go_rank_list'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).' Filter'.go_task_opt_help( 'bonus_currency_filter', '', 'http://maclab.guhsd.net/go/video/quests/bonusCurrencyFilter.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).' Filter'.go_task_opt_help( 'bonus_currency_filter', '', go_get_help_video_url('go_quest_bonus_money_help') ),
 				'id' => "{$prefix}bonus_currency_filter",
 				'type' => 'text'
 			),
 			array(
-				'name' => go_return_options( 'go_penalty_name' ).' Filter'.go_task_opt_help( 'penalty_filter', '', 'http://maclab.guhsd.net/go/video/quests/penaltyFilter.mp4' ),
+				'name' => go_return_options( 'go_penalty_name' ).' Filter'.go_task_opt_help( 'penalty_filter', '', go_get_help_video_url('go_quest_penalty_filter_help') ),
 				'id' => "{$prefix}penalty_filter",
 				'type' => 'text'
 			),
 			array(
-				'name' => 'Start Filter'.go_task_opt_help( 'start_filter', '', 'http://maclab.guhsd.net/go/video/quests/startFilter.mp4' ),
+				'name' => 'Start Filter'.go_task_opt_help( 'start_filter', '', go_get_help_video_url('go_quest_start_filter_help') ),
 				'id' => "{$prefix}start_filter",
 				'type' => 'go_start_filter'
 			),
 			array(
-				'name' => 'Time Filters'.go_task_opt_help( 'time_filters', '', 'http://maclab.guhsd.net/go/video/quests/timeFilter.mp4' ),
+				'name' => 'Time Filters'.go_task_opt_help( 'time_filters', '', go_get_help_video_url('go_quest_time_filter') ),
 				'id' => "{$prefix}time_filters",
 				'type' => 'go_future_filters'
 			),
 			array(
-				'name' => 'Date'.go_task_opt_help( 'nerf_dates', '', 'http://maclab.guhsd.net/go/video/quests/nerfDates.mp4' ),
+				'name' => 'Date'.go_task_opt_help( 'nerf_dates', '', go_get_help_video_url('go_quest_date_help') ),
 				'id' => "{$prefix}date_picker",
 				'type' => 'go_decay_table'
 			),
 			array(
-				'name' => 'Time'.go_task_opt_help( 'time_modifier', '', 'http://maclab.guhsd.net/go/video/quests/nerfTime.mp4' ),
+				'name' => 'Time'.go_task_opt_help( 'time_modifier', '', go_get_help_video_url('go_quest_time_nerf_help') ),
 				'id' => "{$prefix}time_modifier",
 				'type' => 'go_time_modifier_inputs'
 			),
 			array(
-				'name' => go_return_options( 'go_focus_name' ).' Filter'.go_task_opt_help( 'lock_by_cat', '', ' http://maclab.guhsd.net/go/video/quests/lockByProfessionCategory.mp4' ),
+				'name' => go_return_options( 'go_focus_name' ).' Filter'.go_task_opt_help( 'lock_by_cat', '', go_get_help_video_url('go_quest_profession_help') ),
 				'id' => "{$prefix}focus_category_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => '3 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'three_stage_switch', '', 'http://maclab.guhsd.net/go/video/quests/threeStageQuest.mp4' ),
+				'name' => '3 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'three_stage_switch', '', go_get_help_video_url('go_quest_three_help') ),
 				'id' => "{$prefix}three_stage_switch",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => '5 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'five_stage_switch', '', 'http://maclab.guhsd.net/go/video/quests/fiveStageQuest.mp4' ),
+				'name' => '5 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'five_stage_switch', '', go_get_help_video_url('go_quest_five_help') ),
 				'id'   => "{$prefix}five_stage_switch",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Chain Order'.go_task_opt_help( 'task_chain_order', '', 'http://maclab.guhsd.net/go/video/quests/tasksInChain.mp4' ),
+				'name' => 'Chain Order'.go_task_opt_help( 'task_chain_order', '', go_get_help_video_url('go_quest_chain_help') ),
 				'id' => "{$prefix}chain_order",
 				'type' => 'go_pick_order_of_chain'
 			),
 			array(
-				'name' => 'Final '.go_return_options( 'go_tasks_name' ).' Message'.go_task_opt_help( 'final_chain_message', '', 'http://maclab.guhsd.net/go/video/quests/finalChainMessage.mp4' ),
+				'name' => 'Final '.go_return_options( 'go_tasks_name' ).' Message'.go_task_opt_help( 'final_chain_message', '', go_get_help_video_url('go_quest_chain_final_help') ),
 				'id' => "{$prefix}final_chain_message",
 				'type' => 'text'
 			),
 			array(
-				'name' => 'Stage 1'.go_task_opt_help( 'encounter', '', 'http://maclab.guhsd.net/go/video/quests/stageOne.mp4' ),
+				'name' => 'Stage 1'.go_task_opt_help( 'encounter', '', go_get_help_video_url('go_quest_stage_one_help') ),
 				'id' => "{$prefix}quick_desc",
 				'type' => 'wysiwyg',
         		'options' => array(
@@ -108,79 +108,79 @@ function go_mta_con_meta( array $meta_boxes ) {
            		),
 			),
 			array(
-				'name' => go_task_opt_help( 'stage_one_settings', '', 'http://maclab.guhsd.net/go/video/quests/stageOneSettings.mp4' ),
+				'name' => go_task_opt_help( 'stage_one_settings', '', go_get_help_video_url('go_quest_stage_one_settings_help') ),
 				'id' => 'stage_one_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Stage 1 Settings',
 				'settings_id' => 'go_stage_one_settings_accordion'
 			),
 			array(
-				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_one_points', '', 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4' ),
+				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_one_points', '', go_get_help_video_url('go_quest_stage_point_help') ),
 				'id' => "{$prefix}stage_one_points",
 				'type' => 'go_stage_reward',
 				'stage' => 1,
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_one_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4' ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_one_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
 				'id' => "{$prefix}stage_one_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 1,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_one_bonus_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_one_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
 				'id' => "{$prefix}stage_one_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 1,
 				'reward' => 'bonus_currency'
 			),
 			array(
-				'name' => 'Lock'.go_task_opt_help( 'encounter_admin_lock', '', 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4' ),
+				'name' => 'Lock'.go_task_opt_help( 'encounter_admin_lock', '', go_get_help_video_url('go_quest_admin_lock_help') ),
 				'id' => "{$prefix}encounter_admin_lock",
 				'type' => 'go_admin_lock'
 			),
 			array(
-				'name' => 'URL'.go_task_opt_help( 'encounter_url_key', '', 'http://maclab.guhsd.net/go/video/quests/urlKey.mp4' ),
+				'name' => 'URL'.go_task_opt_help( 'encounter_url_key', '', go_get_help_video_url('go_quest_url_key_help') ),
 				'id' => "{$prefix}encounter_url_key",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Upload'.go_task_opt_help( 'encounter_file_upload', '', 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4' ),
+				'name' => 'Upload'.go_task_opt_help( 'encounter_file_upload', '', go_get_help_video_url('go_quest_upload_help') ),
 				'id' => "{$prefix}encounter_upload",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test'.go_task_opt_help( 'encounter_understand', '', 'http://maclab.guhsd.net/go/video/quests/encounterCheckForUnderstanding.mp4' ),
+				'name' => 'Test'.go_task_opt_help( 'encounter_understand', '', go_get_help_video_url('go_quest_encounter_check_help') ),
 				'id' => "{$prefix}test_encounter_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'encounter_understand_return_points', '', 'http://maclab.guhsd.net/go/video/quests/returnPoints.mp4' ),
+				'name' => 'Test Loot'.go_task_opt_help( 'encounter_understand_return_points', '', go_get_help_video_url('go_quest_return_points_help') ),
 				'id' => "{$prefix}test_encounter_lock_loot",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Loot Modifier'.go_task_opt_help( 'encounter_understand_return_modifier', '', 'http://maclab.guhsd.net/go/video/quests/returnModifier.mp4' ),
+				'name' => 'Loot Modifier'.go_task_opt_help( 'encounter_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loot_help') ),
 				'desc' => 'Enter a list of modifiers that will be used to determine the points received on the completion of a test.  This will replace the default modifier. 
 							<code>Note: Seperate percentiles with commas, e.g. "20, 0, -20, -50, -80, -100".  Apostrophes (\', " ) are not permited.</code>',
 				'id' => "{$prefix}test_encounter_lock_loot_mod",
 				'type' => 'go_test_modifier'
 			),
 			array(
- 				'name' => 'Format'.go_task_opt_help( 'encounter_understand_test_fields', '', 'http://maclab.guhsd.net/go/video/quests/testFields.mp4' ),
+ 				'name' => 'Format'.go_task_opt_help( 'encounter_understand_test_fields', '', go_get_help_video_url('go_quest_test_help') ),
  				'id' => "{$prefix}test_lock_encounter",
  				'type' => 'go_test_field',
  				'test_type' => 'e'
  			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge', '', 'http://maclab.guhsd.net/go/video/quests/badge.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge', '', go_get_help_video_url('go_quest_badge_help') ),
 				'id' => "{$prefix}stage_one_badge",
 				'type' => 'go_badge_input',
 				'stage' => 1
 			),
 			array(
-				'name' => 'Stage 2'.go_task_opt_help( 'accept', '', 'http://maclab.guhsd.net/go/video/quests/acceptMessage.mp4' ),
+				'name' => 'Stage 2'.go_task_opt_help( 'accept', '', go_get_help_video_url('go_quest_accept_help') ),
 				'id' => "{$prefix}accept_message",
 				'type' => 'wysiwyg',
         		'options' => array(
@@ -189,79 +189,79 @@ function go_mta_con_meta( array $meta_boxes ) {
            		),
 			),
 			array(
-				'name' => go_task_opt_help( 'stage_two_settings', '', 'http://maclab.guhsd.net/go/video/quests/stageTwoSettings.mp4' ),
+				'name' => go_task_opt_help( 'stage_two_settings', '', go_get_help_video_url('go_quest_two_settings_help') ),
 				'id' => 'stage_two_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Stage 2 Settings',
 				'settings_id' => 'go_stage_two_settings_accordion'
 			),
 			array(
-				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_two_points', '', 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4' ),
+				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_two_points', '', go_get_help_video_url('go_quest_stage_point_help') ),
 				'id' => "{$prefix}stage_two_points",
 				'type' => 'go_stage_reward',
 				'stage' => 2,
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_two_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4' ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_two_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
 				'id' => "{$prefix}stage_two_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 2,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_two_bonus_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_two_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
 				'id' => "{$prefix}stage_two_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 2,
 				'reward' => 'bonus_currency'
 			),
 			array(
-				'name' => 'Lock'.go_task_opt_help( 'accept_admin_lock', '', 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4' ),
+				'name' => 'Lock'.go_task_opt_help( 'accept_admin_lock', '', go_get_help_video_url('go_quest_admin_lock_help') ),
 				'id' => "{$prefix}accept_admin_lock",
 				'type' => 'go_admin_lock'
 			),
 			array(
-				'name' => 'URL'.go_task_opt_help( 'accept_url_key', '', 'http://maclab.guhsd.net/go/video/quests/urlKey.mp4' ),
+				'name' => 'URL'.go_task_opt_help( 'accept_url_key', '', go_get_help_video_url('go_quest_url_key_help') ),
 				'id' => "{$prefix}accept_url_key",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Upload'.go_task_opt_help( 'accept_file_upload', '', 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4' ),
+				'name' => 'Upload'.go_task_opt_help( 'accept_file_upload', '', go_get_help_video_url('go_quest_upload_help') ),
 				'id' => "{$prefix}accept_upload",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test'.go_task_opt_help( 'accept_understand', '', 'http://maclab.guhsd.net/go/video/quests/acceptCheckForUnderstanding.mp4' ),
+				'name' => 'Test'.go_task_opt_help( 'accept_understand', '', go_get_help_video_url('go_quest_accept_check_help') ),
 				'id' => "{$prefix}test_accept_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'accept_understand_return_points', '', 'http://maclab.guhsd.net/go/video/quests/returnPoints.mp4' ),
+				'name' => 'Test Loot'.go_task_opt_help( 'accept_understand_return_points', '', go_get_help_video_url('go_quest_returen_points_help') ),
 				'id' => "{$prefix}test_accept_lock_loot",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Loot Modifier'.go_task_opt_help( 'accept_understand_return_modifier', '', 'http://maclab.guhsd.net/go/video/quests/returnModifier.mp4' ),
+				'name' => 'Loot Modifier'.go_task_opt_help( 'accept_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loot_help') ),
 				'desc' => 'Enter a list of modifiers that will be used to determine the points received on the completion of a test.  This will replace the default modifier. 
 							<code>Note: Seperate percentiles with commas, e.g. "20, 0, -20, -50, -80, -100".  Apostrophes (\', " ) are not permited.</code>',
 				'id' => "{$prefix}test_accept_lock_loot_mod",
 				'type' => 'go_test_modifier'
 			),
 			array(
- 				'name' => 'Format'.go_task_opt_help( 'accept_understand_test_fields', '', 'http://maclab.guhsd.net/go/video/quests/testFields.mp4' ),
+ 				'name' => 'Format'.go_task_opt_help( 'accept_understand_test_fields', '', go_get_help_video_url('go_quest_test_help') ),
  				'id' => "{$prefix}test_lock_accept",
  				'type' => 'go_test_field',
  				'test_type' => 'a'
  			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge', '', 'http://maclab.guhsd.net/go/video/quests/badge.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge', '', go_get_help_video_url('go_quest_badge_help') ),
 				'id' => "{$prefix}stage_two_badge",
 				'type' => 'go_badge_input',
 				'stage' => 2
 			),
 			array(
-				'name' => 'Stage 3'.go_task_opt_help( 'complete', '', 'http://maclab.guhsd.net/go/video/quests/completionMessage.mp4' ),
+				'name' => 'Stage 3'.go_task_opt_help( 'complete', '', go_get_help_video_url('go_quest_complete_help') ),
 				'id' => "{$prefix}complete_message",
 				'type' => 'wysiwyg',
         		'options' => array(
@@ -270,84 +270,84 @@ function go_mta_con_meta( array $meta_boxes ) {
          		),
 			),
 			array(
-				'name' => go_task_opt_help( 'stage_three_settings', '', 'http://maclab.guhsd.net/go/video/quests/stageThreeSettings.mp4' ),
+				'name' => go_task_opt_help( 'stage_three_settings', '', go_get_help_video_url('go_quest_three_settings_help') ),
 				'id' => 'stage_three_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Stage 3 Settings',
 				'settings_id' => 'go_stage_three_settings_accordion'
 			),
 			array(
-				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_three_points', '', 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4' ),
+				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_three_points', '', go_get_help_video_url('go_quest_stage_point_help') ),
 				'id' => "{$prefix}stage_three_points",
 				'type' => 'go_stage_reward',
 				'stage' => 3,
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_three_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4' ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_three_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
 				'id' => "{$prefix}stage_three_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 3,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_three_bonus_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_three_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
 				'id' => "{$prefix}stage_three_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 3,
 				'reward' => 'bonus_currency'
 			),
 			array(
-				'name' => 'Lock'.go_task_opt_help( 'completion_admin_lock', '', 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4' ),
+				'name' => 'Lock'.go_task_opt_help( 'completion_admin_lock', '', go_get_help_video_url('go_quest_admin_lock_help') ),
 				'id' => "{$prefix}completion_admin_lock",
 				'type' => 'go_admin_lock'
 			),
 			array(
-				'name' => 'URL'.go_task_opt_help( 'completion_url_key', '', 'http://maclab.guhsd.net/go/video/quests/urlKey.mp4' ),
+				'name' => 'URL'.go_task_opt_help( 'completion_url_key', '', go_get_help_video_url('go_quest_url_key_help') ),
 				'id' => "{$prefix}completion_url_key",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Upload'.go_task_opt_help( 'completion_file_upload', '', 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4' ),
+				'name' => 'Upload'.go_task_opt_help( 'completion_file_upload', '', go_get_help_video_url('go_quest_upload_help') ),
  				'id' => "{$prefix}completion_upload",
  				'type' => 'checkbox'
  			),
 			array(
-				'name' => 'Test'.go_task_opt_help( 'complete_understand', '', 'http://maclab.guhsd.net/go/video/quests/completionCheckForUnderstanding.mp4' ),
+				'name' => 'Test'.go_task_opt_help( 'complete_understand', '', go_get_help_video_url('go_quest_complete_check_help') ),
 				'id' => "{$prefix}test_completion_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'complete_understand_return_points', '', 'http://maclab.guhsd.net/go/video/quests/returnPoints.mp4' ),
+				'name' => 'Test Loot'.go_task_opt_help( 'complete_understand_return_points', '', go_get_help_video_url('go_quest_returen_points_help') ),
 				'id' => "{$prefix}test_completion_lock_loot",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Loot Modifier'.go_task_opt_help( 'complete_understand_return_modifier', '', 'http://maclab.guhsd.net/go/video/quests/returnModifier.mp4' ),
+				'name' => 'Loot Modifier'.go_task_opt_help( 'complete_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loot_help') ),
 				'desc' => 'Enter a list of modifiers that will be used to determine the points received on the completion of a test.  This will replace the default modifier. 
 							<code>Note: Seperate percentiles with commas, e.g. "20, 0, -20, -50, -80, -100".  Apostrophes (\', " ) are not permited.</code>',
 				'id' => "{$prefix}test_completion_lock_loot_mod",
 				'type' => 'go_test_modifier'
 			),
 			array(
- 				'name' => 'Format'.go_task_opt_help( 'complete_understand_test_fields', '', 'http://maclab.guhsd.net/go/video/quests/testFields.mp4' ),
+ 				'name' => 'Format'.go_task_opt_help( 'complete_understand_test_fields', '', go_get_help_video_url('go_quest_test_help') ),
  				'id' => "{$prefix}test_lock_completion",
  				'type' => 'go_test_field',
  				'test_type' => 'c'
  			),
 			array(
-				'name' => '3 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'toggle_mastery_stage', '', 'http://maclab.guhsd.net/go/video/quests/threeStageQuest.mp4' ),
+				'name' => '3 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'toggle_mastery_stage', '', go_get_help_video_url('go_quest_three_help') ),
 				'id' => "{$prefix}task_mastery",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge', '', 'http://maclab.guhsd.net/go/video/quests/badge.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge', '', go_get_help_video_url('go_quest_badge_help') ),
 				'id' => "{$prefix}stage_three_badge",
 				'type' => 'go_badge_input',
 				'stage' => 3
 			),
 			array(
-				'name' => 'Stage 4'.go_task_opt_help( 'mastery', '', 'http://maclab.guhsd.net/go/video/quests/stageFour.mp4' ),
+				'name' => 'Stage 4'.go_task_opt_help( 'mastery', '', go_get_help_video_url('go_quest_stage_four_help') ),
 				'id' => "{$prefix}mastery_message",
 				'type' => 'wysiwyg',
         		'options' => array(
@@ -356,94 +356,94 @@ function go_mta_con_meta( array $meta_boxes ) {
          		),
 			),
 			array(
-				'name' => go_task_opt_help( 'stage_four_settings', '', 'http://maclab.guhsd.net/go/video/quests/stageFourSettings.mp4' ),
+				'name' => go_task_opt_help( 'stage_four_settings', '', go_get_help_video_url('go_quest_four_settings_help') ),
 				'id' => 'stage_four_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Stage 4 Settings',
 				'settings_id' => 'go_stage_four_settings_accordion'
 			),
 			array(
-				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_four_points', '', 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4' ),
+				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_four_points', '', go_get_help_video_url('go_quest_stage_point_help') ),
 				'id' => "{$prefix}stage_four_points",
 				'type' => 'go_stage_reward',
 				'stage' => 4,
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_four_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4' ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_four_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
 				'id' => "{$prefix}stage_four_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 4,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_four_bonus_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_four_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
 				'id' => "{$prefix}stage_four_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 4,
 				'reward' => 'bonus_currency'
 			),
 			array(
-				'name' => 'Lock'.go_task_opt_help( 'mastery_admin_lock', '', 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4' ),
+				'name' => 'Lock'.go_task_opt_help( 'mastery_admin_lock', '', go_get_help_video_url('go_quest_admin_lock_help') ),
 				'id' => "{$prefix}mastery_admin_lock",
 				'type' => 'go_admin_lock'
 			),
 			array(
-				'name' => 'URL'.go_task_opt_help( 'mastery_url_key', '', 'http://maclab.guhsd.net/go/video/quests/urlKey.mp4' ),
+				'name' => 'URL'.go_task_opt_help( 'mastery_url_key', '', go_get_help_video_url('go_quest_url_key_help') ),
 				'id' => "{$prefix}mastery_url_key",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Upload'.go_task_opt_help( 'mastery_file_upload', '', 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4' ),
+				'name' => 'Upload'.go_task_opt_help( 'mastery_file_upload', '', go_get_help_video_url('go_quest_upload_help') ),
 				'id' => "{$prefix}mastery_upload",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test'.go_task_opt_help( 'mastery_understand', '', 'http://maclab.guhsd.net/go/video/quests/masteryCheckForUnderstanding.mp4' ),
+				'name' => 'Test'.go_task_opt_help( 'mastery_understand', '', go_get_help_video_url('go_quest_master_check_help') ),
 				'id' => "{$prefix}test_mastery_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'mastery_understand_return_points', '', 'http://maclab.guhsd.net/go/video/quests/returnPoints.mp4' ),
+				'name' => 'Test Loot'.go_task_opt_help( 'mastery_understand_return_points', '', go_get_help_video_url('go_quest_return_points_help') ),
 				'id' => "{$prefix}test_mastery_lock_loot",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Loot Modifier'.go_task_opt_help( 'mastery_understand_return_modifier', '', 'http://maclab.guhsd.net/go/video/quests/returnModifier.mp4' ),
+				'name' => 'Loot Modifier'.go_task_opt_help( 'mastery_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loop_help') ),
 				'desc' => 'Enter a list of modifiers that will be used to determine the points received on the completion of a test.  This will replace the default modifier. 
 							<code>Note: Seperate percentiles with commas, e.g. "20, 0, -20, -50, -80, -100".  Apostrophes (\', " ) are not permited.</code>',
 				'id' => "{$prefix}test_mastery_lock_loot_mod",
 				'type' => 'go_test_modifier'
 			),
 			array(
- 				'name' => 'Format'.go_task_opt_help( 'mastery_understand_test_fields', '', 'http://maclab.guhsd.net/go/video/quests/testFields.mp4' ),
+ 				'name' => 'Format'.go_task_opt_help( 'mastery_understand_test_fields', '', go_get_help_video_url('go_quest_test_help') ),
  				'id' => "{$prefix}test_lock_mastery",
  				'type' => 'go_test_field',
  				'test_type' => 'm'
  			),
 			array(
-				'name' => '5 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'five_stage_switch', '', 'http://maclab.guhsd.net/go/video/quests/fiveStageQuest.mp4' ),
+				'name' => '5 Stage '.go_return_options( 'go_tasks_name' ).go_task_opt_help( 'five_stage_switch', '', go_get_help_video_url('go_quest_five_help')),
 				'id'   => "{$prefix}task_repeat",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Private'.go_task_opt_help( 'mastery_privacy', '', 'http://maclab.guhsd.net/go/video/quests/masteryPrivacy.mp4' ),
+				'name' => 'Private'.go_task_opt_help( 'mastery_privacy', '', go_get_help_video_url('go_quest_master_privacy_help') ),
 				'id' => "{$prefix}mastery_privacy",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge', '', 'http://maclab.guhsd.net/go/video/quests/badge.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge', '', go_get_help_video_url('go_quest_badge_help') ),
 				'id' => "{$prefix}stage_four_badge",
 				'type' => 'go_badge_input',
 				'stage' => 4
 			),
 			array(
-				'name' => 'Bonus Loot'.go_task_opt_help( 'mastery_bonus', '', 'http://maclab.guhsd.net/go/video/quests/bonus.mp4' ),
+				'name' => 'Bonus Loot'.go_task_opt_help( 'mastery_bonus', '', go_get_help_video_url('go_quest_bonus_help') ),
 				'id' => "{$prefix}mastery_bonus_loot",
 				'type' => 'go_bonus_loot'
 			),
 			array(
-				'name' => 'Stage 5'.go_task_opt_help( 'repeat_message', '', 'http://maclab.guhsd.net/go/video/quests/stageFive.mp4' ),
+				'name' => 'Stage 5'.go_task_opt_help( 'repeat_message', '', go_get_help_video_url('go_quest_stage_five_help') ),
 				'id' => "{$prefix}repeat_message",
 				'type' => 'wysiwyg',
         		'options' => array(
@@ -452,55 +452,55 @@ function go_mta_con_meta( array $meta_boxes ) {
 				),		
 			),
 			array(
-				'name' => go_task_opt_help( 'stage_five_settings', '', 'http://maclab.guhsd.net/go/video/quests/stageFiveSettings.mp4' ),
+				'name' => go_task_opt_help( 'stage_five_settings', '', go_get_help_video_url('go_quest_stage_five_settings_help') ),
 				'id' => 'stage_five_settings',
 				'type' => 'go_settings_accordion',
 				'message' => 'Stage 5 Settings',
 				'settings_id' => 'go_stage_five_settings_accordion'
 			),
 			array(
-				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_five_points', '', 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4' ),
+				'name' => go_return_options( 'go_points_name' ).go_task_opt_help( 'stage_five_points', '', go_get_help_video_url('go_quest_stage_point_help') ),
 				'id' => "{$prefix}stage_five_points",
 				'type' => 'go_stage_reward',
 				'stage' => 5,
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_five_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4' ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_five_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
 				'id' => "{$prefix}stage_five_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 5,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_five_bonus_currency', '', 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4' ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_five_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
 				'id' => "{$prefix}stage_five_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 5,
 				'reward' => 'bonus_currency'
 			),
 			array(
-				'name' => 'Limit'.go_task_opt_help( 'repeat_amount', '', 'http://maclab.guhsd.net/go/video/quests/allowedRepeatableTimes.mp4' ),
+				'name' => 'Limit'.go_task_opt_help( 'repeat_amount', '', go_get_help_video_url('go_quest_repeat_help') ),
 				'id' => "{$prefix}repeat_amount",
 				'type' => 'go_repeat_amount'
 			),
 			array(
-				'name' => 'Lock'.go_task_opt_help( 'repeat_admin_lock', '', 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4' ),
+				'name' => 'Lock'.go_task_opt_help( 'repeat_admin_lock', '', go_get_help_video_url('go_quest_admin_lock_help') ),
 				'id' => "{$prefix}repeat_admin_lock",
 				'type' => 'go_admin_lock'
 			),
 			array(
-				'name' => 'Upload'.go_task_opt_help( 'repeat_file_upload', '', 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4' ),
+				'name' => 'Upload'.go_task_opt_help( 'repeat_file_upload', '', go_get_help_video_url('go_quest_upload_help') ),
 				'id' => "{$prefix}repeat_upload",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Private'.go_task_opt_help( 'repeat_privacy', '', 'http://maclab.guhsd.net/go/video/quests/repeatPrivacy.mp4' ),
+				'name' => 'Private'.go_task_opt_help( 'repeat_privacy', '', go_get_help_video_url('go_quest_repeat_privacy_help') ),
 				'id' => "{$prefix}repeat_privacy",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge', '', 'http://maclab.guhsd.net/go/video/quests/badge.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge', '', go_get_help_video_url('go_quest_badge_help') ),
 				'id' => "{$prefix}stage_five_badge",
 				'type' => 'go_badge_input',
 				'stage' => 5
@@ -517,22 +517,22 @@ function go_mta_con_meta( array $meta_boxes ) {
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 			array(
-				'name' => 'Item ID'.go_task_opt_help( 'post_id', 'The Store Item ID', 'http://maclab.guhsd.net/go/video/store/storeId.mp4' ),
+				'name' => 'Item ID'.go_task_opt_help( 'post_id', 'The Store Item ID', go_get_help_video_url('go_store_help') ),
 				'id' => "{$prefix}store_post_id",
 				'type' => 'go_store_item_post_id'
 			),
 			array(
-				'name' => 'Cost'.go_task_opt_help( 'cost', 'The Cost of the store item', 'http://maclab.guhsd.net/go/video/store/cost.mp4' ),
+				'name' => 'Cost'.go_task_opt_help( 'cost', 'The Cost of the store item', go_get_help_video_url('go_store_cost_help') ),
 				'id' => "{$prefix}store_cost",
 				'type' => 'go_store_cost',
 			),
 			array(
-				'name' => 'Limit'.go_task_opt_help( 'store_limit', 'Limit the amount of times a player can purchase this item', 'http://maclab.guhsd.net/go/video/store/storeLimit.mp4' ),
+				'name' => 'Limit'.go_task_opt_help( 'store_limit', 'Limit the amount of times a player can purchase this item', go_get_help_video_url('go_store_limit_help') ),
 				'id' => "{$prefix}store_limit",
 				'type' => 'go_store_limit'
 			),
 			array(
-				'name' => 'Bonus Loot'.go_task_opt_help( 'Bonus', 'Make this item available as bonus loot from quests', 'http://maclab.guhsd.net/go/video/store/bonus.mp4' ),
+				'name' => 'Bonus Loot'.go_task_opt_help( 'Bonus', 'Make this item available as bonus loot from quests', go_get_help_video_url('go_store_bonus_help') ),
 				'id' => "{$prefix}store_bonus",
 				'type' => 'checkbox',
 			),
@@ -542,47 +542,47 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'type' => 'checkbox',
 			),
 			array(
-				'name' => 'Penalty'.go_task_opt_help( 'penalty', "Allows student's currency to become negative", 'http://maclab.guhsd.net/go/video/store/penalty.mp4' ),
+				'name' => 'Penalty'.go_task_opt_help( 'penalty', "Allows student's currency to become negative", go_get_help_video_url('go_store_debt_help') ),
 				'id' => "{$prefix}penalty_switch",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Filter'.go_task_opt_help( 'filter', 'Require students to have certain amounts of levels/honor/damage to buy this item', 'http://maclab.guhsd.net/go/video/store/filter.mp4' ),
+				'name' => 'Filter'.go_task_opt_help( 'filter', 'Require students to have certain amounts of levels/honor/damage to buy this item', go_get_help_video_url('go_store_filter_help') ),
 				'id' => "{$prefix}store_filter",
 				'type' => 'go_store_filter'
 			),
 			array(
-				'name' => 'Exchange'.go_task_opt_help( 'exchange', 'Make item exchangeable between students', 'http://maclab.guhsd.net/go/video/store/exchange.mp4' ),
+				'name' => 'Exchange'.go_task_opt_help( 'exchange', 'Make item exchangeable between students', go_get_help_video_url('go_store_exchange_help') ),
 				'id' => "{$prefix}store_exchange",
 				'type' => 'go_store_exchange'
 			),
 			array(
-				'name' => 'URL'.go_task_opt_help( 'item_url', 'Have URL appear upon purchase', 'http://maclab.guhsd.net/go/video/store/itemURL.mp4' ),
+				'name' => 'URL'.go_task_opt_help( 'item_url', 'Have URL appear upon purchase', go_get_help_video_url('go_store_url_help') ),
 				'id' => "{$prefix}store_item_url",
 				'type' => 'go_item_url'	
 			),
 			array(
-				'name' => 'Badge'.go_task_opt_help( 'badge_id', 'Award a badge upon purchase', 'http://maclab.guhsd.net/go/video/store/badgeID.mp4' ),
+				'name' => 'Badge'.go_task_opt_help( 'badge_id', 'Award a badge upon purchase', go_get_help_video_url('go_store_badge_help') ),
 				'id' => "{$prefix}badge_id",
 				'type' => 'go_badge_id'
 			),
 			array(
-				'name' => go_return_options( 'go_focus_name' ).go_task_opt_help( 'focus', 'Turn item into a profession', 'http://maclab.guhsd.net/go/video/store/focus.mp4' ),
+				'name' => go_return_options( 'go_focus_name' ).go_task_opt_help( 'focus', 'Turn item into a profession', go_get_help_video_url('go_store_focus_help') ),
 				'id' => "{$prefix}store_focus",
 				'type' => 'go_store_focus'
 			),
 			array(
-				'name' => go_return_options( 'go_focus_name' ).' Lock'.go_task_opt_help( 'focus_lock', '', 'http://maclab.guhsd.net/go/video/store/focusLock.mp4' ),
+				'name' => go_return_options( 'go_focus_name' ).' Lock'.go_task_opt_help( 'focus_lock', '', go_get_help_video_url('go_store_focus_lock_help') ),
 				'id' => "{$prefix}store_focus_lock",
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Send Receipt'.go_task_opt_help( 'store_receipt', 'Send email to admin upon purchase', 'http://maclab.guhsd.net/go/video/store/receipt.mp4' ),
+				'name' => 'Send Receipt'.go_task_opt_help( 'store_receipt', 'Send email to admin upon purchase', go_get_help_video_url('go_store_email_help') ),
 				'id' => "{$prefix}store_receipt",
 				'type' => 'go_store_receipt'
 			),
 			array(
-				'name' => 'Giftable'.go_task_opt_help( 'giftable', 'Allow students to purchase item for other students', 'http://maclab.guhsd.net/go/video/store/giftable.mp4' ),
+				'name' => 'Giftable'.go_task_opt_help( 'giftable', 'Allow students to purchase item for other students', go_get_help_video_url('go_store_gift_help') ),
 				'id' => "{$prefix}store_giftable",
 				'type' => 'checkbox'
 			),

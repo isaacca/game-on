@@ -33,7 +33,7 @@ function go_clipboard_menu() {
 				</select>
 			
 				<div id="go_clipboard_add">
-					<?php go_options_help( 'http://maclab.guhsd.net/go/video/clipboard/clipboard.mp4', 'Clipboard Help' ); ?>
+					<?php go_options_help(go_get_help_video_url('go_clipboard_help'),'Clipboard Help' ); ?>
 					<label for="go_clipboard_points"><?php echo go_return_options( 'go_points_name' ); ?>: </label><input name="go_clipboard_points" id="go_clipboard_points" class='go_clipboard_add'/> 
 					<label for="go_clipboard_currency"><?php echo go_return_options( 'go_currency_name' ); ?>: </label><input name="go_clipboard_currency" id="go_clipboard_currency" class='go_clipboard_add'/>
 					<label for="go_clipboard_bonus_currency"><?php echo go_return_options( 'go_bonus_currency_name' ); ?>: </label> <input name="go_clipboard_bonus_currency" id="go_clipboard_bonus_currency" class='go_clipboard_add'/>

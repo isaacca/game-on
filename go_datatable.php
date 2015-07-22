@@ -319,6 +319,7 @@ function go_install_data() {
 		'go_penalty_switch' => '',
 		'go_penalty_threshold' => 5,
 		'go_multiplier_percentage' => 10,
+		'go_use_maclab_help' => '',
 		'go_data_reset_switch' => '',
 	);
 	foreach ( $options_array as $key => $value ) {

@@ -1,74 +1,140 @@
 <?php
-function go_mail() {
-	global $wpdb;
-	$dir = plugin_dir_url(__FILE__);
-	add_submenu_page( 'game-on-options.php', 'Email', 'Email', 'manage_options', 'go_mail', 'go_mail_menu');
-}
-
-function go_mail_menu() {
-	global $wpdb;
-	if (!current_user_can('manage_options'))  { 
-		wp_die( __('You do not have sufficient permissions to access this page.') );
-	} 
-	else{
-		if(isset($_POST['go_mail'])){
-			$email = $_POST['go_mail'];
-			update_option('go_admin_email', $email);
-			} else {
-				$email = get_option('go_admin_email','');
-				}
-		echo '<span">Recipient Email:<span> <a href="javascript:;" class="go_task_opt_help" style="float: inherit !important;"onclick="go_display_help_video(\'http://maclab.guhsd.net/go/video/email/email.mp4\');">?</a> <form action="" method="post">
-        <textarea name="go_mail">'.$email.'</textarea>
-        <input type="submit" value="Submit"/>
-        </form> <br />
-		Paste this shortcode: <input type="text" value="[go_upload]" disabled/>
-		This will display an upload box for files and a text-box for additional comments the user has. It will send an Email with the file as an attachment. The message will be from \"no-replay@go.net\" with the first and last name of the student. The subject will be the page title where this was sent from. The message will contain the addition comments and the student\'s login.';
-		}
-}
 
 //Shortcode for Email input
-add_shortcode('go_upload','go_file_input');
-function go_file_input(){
+add_shortcode( 'go_upload','go_file_input' );
+function go_file_input( $atts, $content = null ) {
+	$atts = shortcode_atts(
+		array(
+			'is_uploaded' => '0',
+			'status' => '1',
+			'user_id' => null,
+			'post_id' => null
+		), 
+		$atts
+	);
+	$is_uploaded = (int) $atts['is_uploaded'];
+	$status = (int) $atts['status'];
+	$user_id = (int) $atts['user_id'];
+	$post_id = (int) $atts['post_id'];
 	global $wpdb;
-	if(isset($_FILES['go_attachment'])){
-	$user_info = get_userdata(get_current_user_id());
-    $username = $user_info->user_login;
-    $first_name = $user_info->first_name;
-    $last_name = $user_info->last_name;
-	$user_id = $user_info->ID;
-	$to = get_option('go_admin_email','');
-	require("mail/class.phpmailer.php");
-$mail = new PHPMailer();
-$mail->From     = "no-reply@go.net";
-$mail->FromName = $first_name.' '.$last_name;
-$mail->AddAddress($to);
-$mail->Subject  = get_the_title($ID).' - '.$first_name.' '.$last_name;
-$mail->Body     = 'User login: '.$username.'
-Uploader comments: '.$_POST['go_attachment_com'];
-$mail->WordWrap = 50;
-//$mail->AddAttachment($_FILES['go_attachment']['tmp_name'],$_FILES['go_attachment']['name']);
-for($i=0; $i < count($_FILES['go_attachment']); $i++){ // This loop will upload all the files you have attached to your email. 
-
-$name=$_FILES['go_attachment']['name'][$i];
-$path=$_FILES['go_attachment']['tmp_name'][$i];
-
-//And attach it using attachment method of PHPmailer.
-
-$mail->AddAttachment($path,$name); 
-}
-if(!$mail->Send()) {
-  return 'Message was not sent.';
-  return 'Mailer error: ' . $mail->ErrorInfo;
-} else {
-  return 'Message has been sent.';
-}
+	global $post;
+	$table_go = "{$wpdb->prefix}go";
+	switch ( $status ) {
+		case ( 0 ):
+			$db_task_stage_upload_var = 'e_uploaded';
+			break;
+		case ( 1 ):
+			$db_task_stage_upload_var = 'a_uploaded';
+			break;
+		case ( 2 ):
+			$db_task_stage_upload_var = 'c_uploaded';
+			break;
+		case ( 3 ):
+			$db_task_stage_upload_var = 'm_uploaded';
+			break;
+		case ( 4 ):
+			$db_task_stage_upload_var = 'r_uploaded';
+			break;
 	}
-return('<form id="go_upload_form" action="" method="post" enctype="multipart/form-data">
-<div><input type="file" name="go_attachment[]"/><br/></div>
-<button type="button" onClick="go_add_uploader();">Attach More</button><br/>
-Comments:<br />
-<textarea name="go_attachment_com"></textarea><br />
-<input type="submit" value="Submit"/>
-</form>');
+	if ( empty( $user_id ) || is_null( $user_id ) ) {
+		$user_id = get_current_user_id();
 	}
+	if ( empty( $post_id ) || is_null( $post_id ) ) {
+		$post_id = $post->ID;
+	}
+	$allow_full_name = get_option( 'go_full_student_name_switch' );
+	
+	if ( isset( $_FILES['go_attachment'] ) ) {
+		$user_id = get_current_user_id();
+		$user_info = get_userdata( $user_id );
+		$user_login = $user_info->user_login;
+		$first_name = trim( $user_info->first_name );
+		$last_name = trim( $user_info->last_name );
+		if ( $allow_full_name == 'On' ) {
+			$user_name = "{$first_name} {$last_name}";
+		} else {
+			$last_initial = substr( $last_name, 0, 1 );
+			$user_name = "{$first_name} {$last_initial}.";
+		}
+		$user_email = $user_info->user_email;
+		$user_role = $user_info->roles;
+		$task_title = $post->post_title;
+		$task_name = go_return_options( 'go_tasks_name' );
+		$to = get_option( 'go_admin_email', '' );
+		require( 'mail/class.phpmailer.php' );
+		$mail = new PHPMailer();
+		$mail->From = get_option( 'go_email_from', 'no-reply@go.net' );
+		$mail->FromName = $user_name;
+		$mail->AddAddress( $to );
+		$mail->Subject = "Upload: {$task_title} | {$user_name} {$user_login}";
+		$mail->Body = "{$user_email}\n\nUser comments: \n\t{$_POST['go_attachment_com']}";
+		$mail->WordWrap = 50;
+
+		// This loop will upload all the files you have attached to your email.
+		for ( $i = 0; $i < count( $_FILES['go_attachment'] ); $i++ ) { 
+			if ( empty( $_FILES['go_attachment']['name'][ $i ] ) || empty( $_FILES['go_attachment']['tmp_name'][ $i ] ) ) {
+				continue;
+			}
+			$name = $_FILES['go_attachment']['name'][ $i ];
+			$path = $_FILES['go_attachment']['tmp_name'][ $i ];
+
+			// And attach it using attachment method of PHPmailer.
+			$mail->AddAttachment( $path, $name ); 
+		}
+		if( ! $mail->Send() ) {
+			if ( ( is_array( $user_role ) && in_array( 'administrator', $user_role ) ) || $user_role === 'administrator' ) {
+				return "<div id='go_mailer_error_msg'>{$mail->ErrorInfo}</div>";
+			} else {
+				return "
+					<div id='go_mailer_error_msg'>Message was not sent.</div>
+					<form id='go_upload_form' action='' method='post' enctype='multipart/form-data' uploaded='0'>
+						<div id='go_uploader'>
+							<input type='file' name='go_attachment[]'/>
+							<br/>
+						</div>
+						<button type='button' onClick='go_add_uploader();'>Attach More</button><br/>
+						Comments:
+						<br/>
+						<textarea name='go_attachment_com' style='width: 50%; height: 100px; resize: vertical;' placeholder='Enter any comments you have...'></textarea>
+						<br/>
+						<input type='submit' value='Submit'/>
+					</form>
+				";
+			}
+		} else {
+			$wpdb->update( $table_go, array( $db_task_stage_upload_var => 1), array( 'uid' => $user_id, 'post_id' => $post_id ) );
+			return "
+				<div id='go_mailer_confirm_msg'>Message was sent.</div>
+				<form id='go_upload_form' action='' method='post' enctype='multipart/form-data' uploaded='1'>
+					<div id='go_uploader'>
+						<input type='file' name='go_attachment[]'/>
+						<br/>
+					</div>
+					<button type='button' onClick='go_add_uploader();'>Attach More</button><br/>
+					Comments:
+					<br/>
+					<textarea name='go_attachment_com' style='width: 50%; height: 100px; resize: vertical;' placeholder='Enter any comments you have...'></textarea>
+					<br/>
+					<input type='submit' value='Submit'/>
+				</form>
+			";
+		}
+	} else {
+		return "
+			<form id='go_upload_form' action='' method='post' enctype='multipart/form-data' uploaded='{$is_uploaded}'>
+				<div id='go_uploader'>
+					<input type='file' name='go_attachment[]'/>
+					<br/>
+				</div>
+				<button type='button' onClick='go_add_uploader();'>Attach More</button><br/>
+				Comments:
+				<br/>
+				<textarea name='go_attachment_com' style='width: 50%; height: 100px; resize: vertical;' placeholder='Enter any comments you have...'></textarea>
+				<br/>
+				<input type='submit' value='Submit'/>
+			</form>
+		";
+	}
+}
+
 ?>

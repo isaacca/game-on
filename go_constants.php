@@ -261,4 +261,3 @@ $go_MACLAB_HELP_URLS = array(
 	}
 }
 ?>
-

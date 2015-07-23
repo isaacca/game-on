@@ -36,7 +36,10 @@ function hideVid() {
 	}
 	jQuery( '#go_help_video_container' ).append( '<video id="go_option_help_video" class="video-js vjs-default-skin vjs-big-play-centered" controls height="100%" width="100%" ><source src="" type="video/mp4"/></video>' );
 }
-
+/**
+ * Display either a video (native, youtube, or vimeo) or an image in the help lightbox.
+ * @param url URL to the content to display.
+ */
 function go_display_help_video( url ) {
 	jQuery( '.dark' ).show();
 	//Handle YouTube/Vimeo
@@ -44,14 +47,11 @@ function go_display_help_video( url ) {
 		//specific to YouTube
 		if ( url.indexOf( 'youtube.com' ) != -1 || url.indexOf( 'youtu.be' ) != -1) {
 			//convert long YouTube links to embedable long YouTube links
-			if(url.indexOf('youtube.com')!=-1){url = url.replace( 'watch?v=', 'v/' );}
+			if(url.indexOf('youtube.com')!=-1){url = url.replace( 'watch?v=', 'embed/' );}
 			//convert short YouTube links to long embedable YouTube links
-			if(url.indexOf('youtu.be') != -1){url = url.replace('youtu.be/','youtube.com/v/')}
-			//Disable related videos on the ending
-			if ( url.indexOf( '&rel=0' ) == -1 ) {
-				url = url + '&rel=0';	
-			}
-			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="' + url + '" frameborder="0" allowfullscreen></iframe>' );
+			if(url.indexOf('youtu.be') != -1){url = url.replace('youtu.be/','youtube.com/embed/')}
+			//come up with the embed code and set the video to autoplay without related videos at the end
+			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
 		}
 		//Specific to Vimeo
 		if ( url.indexOf( 'vimeo.com' ) != -1 ) {
@@ -59,6 +59,10 @@ function go_display_help_video( url ) {
 			new_url = 'https://player.vimeo.com/video/' + vimeo_vid_num;
 			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" src="' + new_url + '" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' );
 		}
+	}
+	//Handle Images
+	if(url.indexOf('.png') != -1 || url.indexOf('.jpg') != -1 || url.indexOf('.gif') != -1 || url.indexOf('.jpeg') != -1 || url.indexOf('.bmp') != -1 || url.indexOf('.svg') != -1){
+		jQuery('#go_help_video_container').html('<img src="' + url + '" width="100%" height="100%" ></img>');
 	}
 	jQuery( '#go_help_video_container' ).show();
 	//Handle native video

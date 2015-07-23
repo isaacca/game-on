@@ -2,9 +2,14 @@
 /**
  * A place to store program constants and functions to easily access them
  */
-global $go_YOUTUBE_HELP_URLS;
-global $go_MACLAB_HELP_URLS;
-$go_YOUTUBE_HELP_URLS = array(
+
+/**
+ * A method to get the url for help videos respectice of the current setting based on the given <code>$key</code>.
+ * @param string $key The identifying key/name for the help video.
+ * @return The (theoretically) correct URL to where the video is located based on the admin's preferences.
+ */
+function go_get_help_video_url($key){
+	$go_YOUTUBE_HELP_URLS = array(
 	'go_introduction_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',//placeholder URLs
 	'go_admin_email_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_naming_conventions' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
@@ -245,15 +250,6 @@ $go_MACLAB_HELP_URLS = array(
 	'go_store_email_help' => 'http://maclab.guhsd.net/go/video/store/receipt.mp4',
 	'go_store_gift_help' => 'http://maclab.guhsd.net/go/video/store/giftable.mp4',//video 404's
 );
-
-/**
- * A method to get the url for help videos respectice of the current setting based on the given <code>$key</code>.
- * @param string $key The identifying key/name for the help video.
- * @return The (theoretically) correct URL to where the video is located based on the admin's preferences.
- */
-function go_get_help_video_url($key){
-	global $go_YOUTUBE_HELP_URLS;
-	global $go_MACLAB_HELP_URLS;
 	if(get_option('go_use_maclab_help') == 'On'){
 		//get the native non-youtube video
 		return $go_MACLAB_HELP_URLS[$key];

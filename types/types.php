@@ -237,7 +237,7 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'accept_understand_return_points', '', go_get_help_video_url('go_quest_returen_points_help') ),
+				'name' => 'Test Loot'.go_task_opt_help( 'accept_understand_return_points', '', go_get_help_video_url('go_quest_return_points_help') ),
 				'id' => "{$prefix}test_accept_lock_loot",
 				'type' => 'checkbox'
 			),
@@ -318,7 +318,7 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Test Loot'.go_task_opt_help( 'complete_understand_return_points', '', go_get_help_video_url('go_quest_returen_points_help') ),
+				'name' => 'Test Loot'.go_task_opt_help( 'complete_understand_return_points', '', go_get_help_video_url('go_quest_return_points_help') ),
 				'id' => "{$prefix}test_completion_lock_loot",
 				'type' => 'checkbox'
 			),
@@ -409,7 +409,7 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'type' => 'checkbox'
 			),
 			array(
-				'name' => 'Loot Modifier'.go_task_opt_help( 'mastery_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loop_help') ),
+				'name' => 'Loot Modifier'.go_task_opt_help( 'mastery_understand_return_modifier', '', go_get_help_video_url('go_quest_return_loot_help') ),
 				'desc' => 'Enter a list of modifiers that will be used to determine the points received on the completion of a test.  This will replace the default modifier. 
 							<code>Note: Seperate percentiles with commas, e.g. "20, 0, -20, -50, -80, -100".  Apostrophes (\', " ) are not permited.</code>',
 				'id' => "{$prefix}test_mastery_lock_loot_mod",

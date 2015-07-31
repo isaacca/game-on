@@ -9,7 +9,7 @@
  * @return The (theoretically) correct URL to where the video is located based on the admin's preferences.
  */
 function go_get_help_video_url($key){
-	$go_YOUTUBE_HELP_URLS = array(
+	$go_youtube_help_urls = array(
 	'go_introduction_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',//placeholder URLs
 	'go_admin_email_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_naming_conventions' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
@@ -20,7 +20,7 @@ function go_get_help_video_url($key){
 	'go_loot_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_bonus_loot_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_points_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
-	'go_money_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
+	'go_currency_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_bonus_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_penalty_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_minutes_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
@@ -76,7 +76,7 @@ function go_get_help_video_url($key){
 	'go_presets_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_advanced_quest_settings_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_rank_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
-	'go_quest_bonus_money_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
+	'go_quest_bonus_currency_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_penalty_filter_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_start_filter_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_time_filter' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
@@ -90,8 +90,8 @@ function go_get_help_video_url($key){
 	'go_quest_stage_one_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_stage_one_settings_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_stage_point_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
-	'go_quest_stage_money_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
-	'go_quest_stage_bonus_money_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
+	'go_quest_stage_currency_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
+	'go_quest_stage_bonus_currency_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_admin_lock_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_url_key_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 	'go_quest_upload_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
@@ -130,7 +130,7 @@ function go_get_help_video_url($key){
 	'go_store_gift_help' => 'https://www.youtube.com/watch?v=RaucEEi6yqY',
 ); 
 
-$go_MACLAB_HELP_URLS = array(
+$go_maclab_help_urls = array(
 	'go_introduction_help' => 'http://maclab.guhsd.net/go/video/gameOn.mp4',
 	'go_admin_email_help' => 'http://maclab.guhsd.net/go/video/options/adminEmail.mp4',
 	'go_naming_conventions' => 'http://maclab.guhsd.net/go/video/options/namingConventions.mp4',
@@ -141,7 +141,7 @@ $go_MACLAB_HELP_URLS = array(
 	'go_loot_help' => 'http://maclab.guhsd.net/go/video/options/taskLoot.mp4',//video 404's
 	'go_bonus_loot_help' => 'http://maclab.guhsd.net/go/video/options/bonusLoot.mp4',//video 404's
 	'go_points_help' => 'http://maclab.guhsd.net/go/video/options/points.mp4',
-	'go_money_help' => 'http://maclab.guhsd.net/go/video/options/currency.mp4',
+	'go_currency_help' => 'http://maclab.guhsd.net/go/video/options/currency.mp4',
 	'go_bonus_help' => 'http://maclab.guhsd.net/go/video/options/bonus.mp4',
 	'go_penalty_help' => 'http://maclab.guhsd.net/go/video/options/penalty.mp4',
 	'go_minutes_help' => 'http://maclab.guhsd.net/go/video/options/minutes.mp4',//video 404's
@@ -197,7 +197,7 @@ $go_MACLAB_HELP_URLS = array(
 	'go_presets_help' => 'http://maclab.guhsd.net/go/video/quests/presets.mp4',
 	'go_advanced_quest_settings_help' => 'http://maclab.guhsd.net/go/video/quests/advancedSettings.mp4',
 	'go_quest_rank_help' => 'http://maclab.guhsd.net/go/video/quests/requiredRank.mp4',
-	'go_quest_bonus_money_help' => 'http://maclab.guhsd.net/go/video/quests/bonusCurrencyFilter.mp4',
+	'go_quest_bonus_currency_help' => 'http://maclab.guhsd.net/go/video/quests/bonusCurrencyFilter.mp4',
 	'go_quest_penalty_filter_help' => 'http://maclab.guhsd.net/go/video/quests/penaltyFilter.mp4',
 	'go_quest_start_filter_help' => 'http://maclab.guhsd.net/go/video/quests/startFilter.mp4',//video 404's
 	'go_quest_time_filter' => 'http://maclab.guhsd.net/go/video/quests/timeFilter.mp4',
@@ -211,8 +211,8 @@ $go_MACLAB_HELP_URLS = array(
 	'go_quest_stage_one_help' => 'http://maclab.guhsd.net/go/video/quests/stageOne.mp4',
 	'go_quest_stage_one_settings_help' => 'http://maclab.guhsd.net/go/video/quests/stageOneSettings.mp4',
 	'go_quest_stage_point_help' => 'http://maclab.guhsd.net/go/video/quests/stagePoint.mp4',
-	'go_quest_stage_money_help' => 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4',
-	'go_quest_stage_bonus_money_help' => 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4',
+	'go_quest_stage_currency_help' => 'http://maclab.guhsd.net/go/video/quests/stageCurrency.mp4',
+	'go_quest_stage_bonus_currency_help' => 'http://maclab.guhsd.net/go/video/quests/stageBonusCurrency.mp4',
 	'go_quest_admin_lock_help' => 'http://maclab.guhsd.net/go/video/quests/adminLock.mp4',
 	'go_quest_url_key_help' => 'http://maclab.guhsd.net/go/video/quests/urlKey.mp4',//video 404's
 	'go_quest_upload_help' => 'http://maclab.guhsd.net/go/video/quests/fileUpload.mp4',
@@ -252,12 +252,10 @@ $go_MACLAB_HELP_URLS = array(
 );
 	if(get_option('go_use_maclab_help') == 'On'){
 		//get the native non-youtube video
-		return $go_MACLAB_HELP_URLS[$key];
-
+		return $go_maclab_help_urls[$key];
 	}else{
 		//get the youtube video
-		return $go_YOUTUBE_HELP_URLS[$key];
-
+		return $go_youtube_help_urls[$key];
 	}
 }
 ?>

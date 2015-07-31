@@ -44,7 +44,7 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'type' => 'go_rank_list'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).' Filter'.go_task_opt_help( 'bonus_currency_filter', '', go_get_help_video_url('go_quest_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).' Filter'.go_task_opt_help( 'bonus_currency_filter', '', go_get_help_video_url('go_quest_bonus_currency_help') ),
 				'id' => "{$prefix}bonus_currency_filter",
 				'type' => 'text'
 			),
@@ -122,14 +122,14 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_one_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_one_currency', '', go_get_help_video_url('go_quest_stage_currency_help') ),
 				'id' => "{$prefix}stage_one_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 1,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_one_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_one_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_currency_help') ),
 				'id' => "{$prefix}stage_one_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 1,
@@ -203,14 +203,14 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_two_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_two_currency', '', go_get_help_video_url('go_quest_stage_currency_help') ),
 				'id' => "{$prefix}stage_two_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 2,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_two_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_two_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_currency_help') ),
 				'id' => "{$prefix}stage_two_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 2,
@@ -284,14 +284,14 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_three_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_three_currency', '', go_get_help_video_url('go_quest_stage_currency_help') ),
 				'id' => "{$prefix}stage_three_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 3,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_three_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_three_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_currency_help') ),
 				'id' => "{$prefix}stage_three_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 3,
@@ -370,14 +370,14 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_four_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_four_currency', '', go_get_help_video_url('go_quest_stage_currency_help') ),
 				'id' => "{$prefix}stage_four_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 4,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_four_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_four_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_currency_help') ),
 				'id' => "{$prefix}stage_four_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 4,
@@ -466,14 +466,14 @@ function go_mta_con_meta( array $meta_boxes ) {
 				'reward' => 'points'
 			),
 			array(
-				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_five_currency', '', go_get_help_video_url('go_quest_stage_money_help') ),
+				'name' => go_return_options( 'go_currency_name' ).go_task_opt_help( 'stage_five_currency', '', go_get_help_video_url('go_quest_stage_currency_help') ),
 				'id' => "{$prefix}stage_five_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 5,
 				'reward' => 'currency'
 			),
 			array(
-				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_five_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_money_help') ),
+				'name' => go_return_options( 'go_bonus_currency_name' ).go_task_opt_help( 'stage_five_bonus_currency', '', go_get_help_video_url('go_quest_stage_bonus_currency_help') ),
 				'id' => "{$prefix}stage_five_bonus_currency",
 				'type' => 'go_stage_reward',
 				'stage' => 5,

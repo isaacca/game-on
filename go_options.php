@@ -83,7 +83,7 @@ if ( is_admin() ) {
 			go_options_input( 'Admin Email','text', 'go_admin_email', go_get_help_video_url('go_admin_email_help'), 'IMPORTANT: Enter your email and click the Save Options button' );
 			?>
 			</div>
-			 <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( go_get_help_video_url('go_naming_conventions', 'Customize the names used for tasks, points, currency, etc.' ); ?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+			 <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( go_get_help_video_url('go_naming_conventions', 'Customize the names used for tasks, points, currency, etc.' ));?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_naming_conventions_wrap' class='go_options_wrap'>
 					<?php 
 						go_options_field( 'Tasks', 2, array( 1 => 'go_tasks_name', 2 => 'go_tasks_plural_name' ), go_get_help_video_url('go_tasks_help'), 'Name your assignments' ); 
@@ -93,7 +93,7 @@ if ( is_admin() ) {
 						go_options_field( 'Task Loot', 1, array( 1 => 'go_task_loot_name' ), go_get_help_video_url('go_loot_help'), 'Name the loot that has 100% rarity rewarded for task mastery' );
 						go_options_field( 'Bonus Loot', 1, array( 1 => 'go_bonus_loot_name' ), go_get_help_video_url('go_bonus_loot_help'), 'Name the rare loot rewarded for task mastery' );
 						go_options_field( 'Points', 3, array( 1 => 'go_points_name', 2 => 'go_points_prefix', 3 => 'go_points_suffix' ), go_get_help_video_url('go_points_help'), 'Name your points system (used for leveling)' );
-						go_options_field( 'Currency', 3, array( 1 => 'go_currency_name', 2 => 'go_currency_prefix', 3 => 'go_currency_suffix' ), go_get_help_video_url('go_money_help'), 'Name your virtual currency (used to purchase goods in the store)' );
+						go_options_field( 'Currency', 3, array( 1 => 'go_currency_name', 2 => 'go_currency_prefix', 3 => 'go_currency_suffix' ), go_get_help_video_url('go_currency_help'), 'Name your virtual currency (used to purchase goods in the store)' );
 						go_options_field( 'Bonus', 3, array( 1 => 'go_bonus_currency_name', 2 => 'go_bonus_currency_prefix', 3 => 'go_bonus_currency_suffix' ), go_get_help_video_url('go_bonus_help'), 'Name your bonus mechanism' );
 						go_options_field( 'Penalty', 3, array( 1 => 'go_penalty_name', 2 => 'go_penalty_prefix', 3 => 'go_penalty_suffix' ), go_get_help_video_url('go_penalty_help'), 'Name your penalty mechanism' );
 						go_options_field( 'Minutes', 3, array( 1 => 'go_minutes_name', 2 => 'go_minutes_prefix', 3 => 'go_minutes_suffix' ), go_get_help_video_url('go_minutes_help'), 'Name your timing mechanism' );

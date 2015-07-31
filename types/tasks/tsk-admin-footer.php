@@ -299,8 +299,8 @@ function task_edit_jquery() {
 					});
 				}
 				<?php 
-				wp_enqueue_style( 'ptTimeSelectCSS', plugin_dir_url(__FILE__).'includes/jQuery.ptTimeSelect-0.8/src/jquery.ptTimeSelect.css' );
-				wp_enqueue_script( 'ptTimeSelectJS', plugin_dir_url(__FILE__).'includes/jQuery.ptTimeSelect-0.8/src/jquery.ptTimeSelect.js' );
+				wp_enqueue_style( 'ptTimeSelectCSS', plugin_dir_url( __FILE__ ).'includes/jQuery.ptTimeSelect-0.8/src/jquery.ptTimeSelect.css' );
+				wp_enqueue_script( 'ptTimeSelectJS', plugin_dir_url( __FILE__ ).'includes/jQuery.ptTimeSelect-0.8/src/jquery.ptTimeSelect.js' );
 				?>
 				if ( jQuery( 'input.custom_time' ).length ) {
 					jQuery( 'input.custom_time' ).each( function() {

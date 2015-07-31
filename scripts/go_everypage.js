@@ -11,14 +11,63 @@ function go_deactivate_plugin() {
 	});	
 }
 
+function go_submit_pods () {
+	var podInfo = [];
+	var links = [];
+	jQuery( "input[name='go_pod_link[]']" ).each( function() {
+		links.push( jQuery( this ).val() );
+		
+	});
+	podInfo.push( links );
+	console.log( links );
+	
+	var stage = [];
+	jQuery( "select[name='go_pod_stage_select[]']" ).each( function() {
+		stage.push( jQuery( this ).val() );
+	});
+	console.log( stage );
+	podInfo.push( stage );
+	
+	var number = [];
+	jQuery( "input[name='go_pod_number[]']" ).each( function() {
+		number.push( jQuery( this ).val() );
+	});
+	console.log( number );
+	podInfo.push( number );
+	
+	var next = [];
+	jQuery( "select[name='go_next_pod_select[]']" ).each( function() {
+		next.push( jQuery( this ).val() );
+	});
+	console.log( next );
+	podInfo.push( next );
+	
+	console.log( podInfo );
+	return podInfo;
+	/*jQuery.ajax({
+		type: 'post',
+		url: MyAjax.ajaxurl,
+		data:{
+			action: 'go_submit_pods',
+			podLink: jQuery("input[name='go_pod_link[]']").each(),
+			podStage: jQuery("input[name='go_pod_stage_select[]']").each(),
+			podNumber: jQuery("input[name='go_pod_number[]']").each(),
+			podNext: jQuery("input[name='go_next_pod_select[]']").each()
+		},
+		success: function (html) {
+			
+		}
+	});*/
+}
+
 function go_sounds( type ) {
-    if ( type == 'store' ) {
-        var audio = new Audio( PluginDir["url"] + 'media/gold.mp3' );
-        audio.play();
-    } else if ( type == 'timer' ) {
-    	var audio = new Audio( PluginDir["url"] + 'media/airhorn.mp3' );
-        audio.play();
-    }
+	if ( 'store' == type ) {
+		var audio = new Audio( PluginDir["url"] + 'media/gold.mp3' );
+		audio.play();
+	} else if ( 'timer' == type ) {
+		var audio = new Audio( PluginDir["url"] + 'media/airhorn.mp3' );
+		audio.play();
+	}
 }
 
 function hideVid() {
@@ -43,18 +92,18 @@ function hideVid() {
 function go_display_help_video( url ) {
 	jQuery( '.dark' ).show();
 	//Handle YouTube/Vimeo
-	if ( url.indexOf( 'youtube.com' ) != -1 || url.indexOf( 'vimeo.com' ) != -1 || url.indexOf('youtu.be') != -1) {
+	if ( -1 != url.indexOf( 'youtube.com' ) || -1 != url.indexOf( 'vimeo.com' ) || -1 != url.indexOf( 'youtu.be' ) ) {
 		//specific to YouTube
-		if ( url.indexOf( 'youtube.com' ) != -1 || url.indexOf( 'youtu.be' ) != -1) {
+		if ( -1 != url.indexOf( 'youtube.com' ) || -1 != url.indexOf( 'youtu.be' ) ) {
 			//convert long YouTube links to embedable long YouTube links
-			if(url.indexOf('youtube.com')!=-1){url = url.replace( 'watch?v=', 'embed/' );}
+			if( -1 != url.indexOf( 'youtube.com' ) ){url = url.replace( 'watch?v=', 'embed/' );}
 			//convert short YouTube links to long embedable YouTube links
-			if(url.indexOf('youtu.be') != -1){url = url.replace('youtu.be/','youtube.com/embed/')}
+			if( -1 != url.indexOf( 'youtu.be' ) ){url = url.replace('youtu.be/','youtube.com/embed/')}
 			//come up with the embed code and set the video to autoplay without related videos at the end
 			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
 		}
 		//Specific to Vimeo
-		if ( url.indexOf( 'vimeo.com' ) != -1 ) {
+		if ( -1 != url.indexOf( 'vimeo.com' ) ) {
 			vimeo_vid_num = url.match( /\d+$/ )[0];
 			new_url = 'https://player.vimeo.com/video/' + vimeo_vid_num;
 			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" src="' + new_url + '" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' );
@@ -66,7 +115,7 @@ function go_display_help_video( url ) {
 	}
 	jQuery( '#go_help_video_container' ).show();
 	//Handle native video
-	if ( jQuery( '#go_option_help_video' ).length != 0 ) {
+	if ( 0 != jQuery( '#go_option_help_video' ).length ) {
 		var myplayer = videojs( 'go_option_help_video' );
 		myplayer.ready( function() {
 			myplayer.src( url );
@@ -77,15 +126,15 @@ function go_display_help_video( url ) {
 	}
 
 	jQuery( '.light' ).show();
-	if ( jQuery( '.dark' ).css( 'display' ) != 'none' ) {
+	if ( 'none' != jQuery( '.dark' ).css( 'display' ) ) {
 		jQuery(document).keydown( function( e ) { 
 			if ( jQuery( '#go_help_video_container' ).is(":visible") ) {
 				
 				// If the key pressed is escape, run this.
-				if (e.keyCode == 27) {
+				if ( 27 == e.keyCode ) {
 					hideVid();
 				} 
-				if (e.keyCode == 32) {
+				if ( 32 == e.keyCode ) {
 					e.preventDefault();
 					if( ! myplayer.paused() ) {
 						myplayer.pause();
@@ -107,16 +156,16 @@ function go_admin_bar_add() {
 		url: MyAjax.ajaxurl,
 		data: { 
 			action: 'go_admin_bar_add',
-			go_admin_bar_points_points:jQuery( '#go_admin_bar_points_points' ).val(),
-			go_admin_bar_points_reason:jQuery( '#go_admin_bar_points_reason' ).val(),
-			go_admin_bar_currency_points:jQuery( '#go_admin_bar_currency_points' ).val(),
-			go_admin_bar_currency_reason:jQuery( '#go_admin_bar_currency_reason' ).val(),
-			go_admin_bar_bonus_currency_points:jQuery( '#go_admin_bar_bonus_currency_points' ).val(),
-			go_admin_bar_bonus_currency_reason:jQuery( '#go_admin_bar_bonus_currency_reason' ).val(),
-			go_admin_bar_minutes_points:jQuery( '#go_admin_bar_minutes_points' ).val(),
-			go_admin_bar_minutes_reason:jQuery( '#go_admin_bar_minutes_reason' ).val(),
-			go_admin_bar_penalty_points:jQuery( '#go_admin_bar_penalty_points' ).val(),
-			go_admin_bar_penalty_reason:jQuery( '#go_admin_bar_penalty_reason' ).val()
+			go_admin_bar_points_points: jQuery( '#go_admin_bar_points_points' ).val(),
+			go_admin_bar_points_reason: jQuery( '#go_admin_bar_points_reason' ).val(),
+			go_admin_bar_currency_points: jQuery( '#go_admin_bar_currency_points' ).val(),
+			go_admin_bar_currency_reason: jQuery( '#go_admin_bar_currency_reason' ).val(),
+			go_admin_bar_bonus_currency_points: jQuery( '#go_admin_bar_bonus_currency_points' ).val(),
+			go_admin_bar_bonus_currency_reason: jQuery( '#go_admin_bar_bonus_currency_reason' ).val(),
+			go_admin_bar_minutes_points: jQuery( '#go_admin_bar_minutes_points' ).val(),
+			go_admin_bar_minutes_reason: jQuery( '#go_admin_bar_minutes_reason' ).val(),
+			go_admin_bar_penalty_points: jQuery( '#go_admin_bar_penalty_points' ).val(),
+			go_admin_bar_penalty_reason: jQuery( '#go_admin_bar_penalty_reason' ).val()
 		},
 		success: function( html ) {
 			jQuery( '#go_admin_bar_points_points' ).val( '' );
@@ -197,12 +246,15 @@ function go_admin_bar_stats_page_button( id ) {
 			
 			jQuery( '#go_stats_body_tasks' ).click();
 			
-			//Check if store lightbox is visible
-			if ( jQuery( '#go_stats_white_overlay' ).css( 'display' ) != 'none' ) {
-				//Monitors for keyboard input
+			// Check if store lightbox is visible
+			if ( 'none' != jQuery( '#go_stats_white_overlay' ).css( 'display' ) ) {
+				
+				// Monitors for keyboard input
 				jQuery(document).keydown( function( e ) {
-					if ( jQuery( '.white_content' ).css( 'display' ) == 'none' && e.keyCode == 27 ) { 
-						go_stats_close(); //Close out stats panel
+					if ( 'none' == jQuery( '.white_content' ).css( 'display' ) && 27 == e.keyCode ) { 
+						
+						// Close out stats panel
+						go_stats_close();
 					}
 				});
 				jQuery( '#go_stats_page_black_bg' ).click( function() {
@@ -250,7 +302,7 @@ function go_stats_task_list() {
 		success:function( html ) {
 			jQuery( '#go_stats_body' ).html( html );
 			jQuery( '.go_stats_task_status_wrap a.go_stats_task_admin_stage_wrap' ).click( function() {
-				if ( jQuery( this ).attr( 'href' ) == '#' ) {
+				if ( '#' == jQuery( this ).attr( 'href' ) ) {
 					jQuery( '.chosen' ).not( jQuery( this ).children( 'div' ) ).removeClass( 'chosen' );
 					jQuery( this ).children( 'div' ).not( jQuery( '.go_stage_does_not_exist' ) ).toggleClass( 'chosen' );
 				}
@@ -271,7 +323,7 @@ function go_stats_task_list() {
 				if ( jQuery( 'div[task="' + task_id + '"].chosen' ).length ) {
 					stage = jQuery( 'div[task="' + task_id + '"].chosen' ).attr( 'stage' );
 				}
-				if ( task_id != '' && stage != '' ) {
+				if ( '' != task_id && '' != stage ) {
 					go_stats_move_stage( task_id, stage );
 				}
 				jQuery( '.chosen' ).toggleClass( 'chosen' );
@@ -282,7 +334,7 @@ function go_stats_task_list() {
 
 function go_stats_move_stage( task_id, status ) {
 	task_message = jQuery( '#go_stats_task_' + task_id + '_message' );
-	if ( task_message.val() != '' ) {
+	if ( '' != task_message.val() ) {
 		message = task_message.val();
 	} else {
 		message = task_message.prop( 'placeholder' );
@@ -332,7 +384,7 @@ function go_stats_move_stage( task_id, status ) {
 				percentage = ( parseFloat( jQuery( '#go_stats_user_progress_top_value' ).html() ) / parseFloat( jQuery( '#go_stats_user_progress_bottom_value' ).html() ) ) * 100;
 				jQuery( '#go_stats_progress_fill' ).css( 'width', '' + percentage + '%' );
 			}
-			if( json['abandon'] ) {
+			if ( json['abandon'] ) {
 				task_message.parent( 'li' ).remove();
 			}
 			jQuery( '#go_stats_user_currency_value' ).html( parseFloat( jQuery( '#go_stats_user_currency_value' ).html() ) + json['currency']);
@@ -462,28 +514,28 @@ function go_mark_seen( date, type ) {
 		},
 		success: function( data ) {
 			data = JSON.parse( data );
-			if ( data[1] == 'remove' ) {
+			if ( 'remove' == data[1] ) {
 				jQuery( '#wp-admin-bar-' + data[0] ).remove();
 				jQuery( '#go_messages_bar' ).html( data[2] );
-				if ( data[2] == 0 ) {
+				if ( 0 == data[2] ) {
 					jQuery( '#go_messages_bar' ).css( 'background', '#222222' );
 				}
-			} else if ( data[1] == 'unseen' ) {
+			} else if ( 'unseen' == data[1] ) {
 				jQuery( '#wp-admin-bar-' + data[0] + ' div' ).css( 'color','white' );
 				jQuery( '#go_messages_bar' ).html( data[2] );
-				if ( data[2] == 0 ) {
+				if ( 0 == data[2] ) {
 					jQuery( '#go_messages_bar' ).css( 'background', '#222222' );
 				}
-			} else if ( data[1] == 'seen' ) {
+			} else if ( 'seen' == data[1] ) {
 				jQuery( '#wp-admin-bar-' + data[0] + ' a:first-of-type div' ).css( 'color','red' );
 				jQuery( '#go_messages_bar' ).html( data[2] );
-				if ( data[2] == 1 ) {
+				if ( 1 == data[2] ) {
 					jQuery( '#go_messages_bar' ).css( 'background', 'red' );
 				}
 			}
 			if ( data[2] > 1 ) {
 				jQuery( '#wp-admin-bar-no-new-messages-from-admin .ab-item' ).text("New messages from admin");
-			} else if ( data[2] == 1 ) {
+			} else if ( 1 == data[2] ) {
 				jQuery( '#wp-admin-bar-no-new-messages-from-admin .ab-item' ).text("New message from admin");
 			} else {
 				jQuery( '#wp-admin-bar-no-new-messages-from-admin .ab-item' ).text("No new messages from admin");
@@ -492,10 +544,10 @@ function go_mark_seen( date, type ) {
 	});
 }
 function go_change_seen( date, type, obj ) {
-	if ( type == 'unseen' ) {
+	if ( 'unseen' == type ) {
 		jQuery( obj ).text( 'Mark Unread' );
 		jQuery( obj ).attr( 'onClick', 'go_mark_seen("' + date + '", "seen"); go_change_seen("' + date + '", "seen", this);' );
-	} else if ( type == 'seen' ) {
+	} else if ( 'seen' == type ) {
 		jQuery( obj ).text( 'Mark Read' );
 		jQuery( obj ).attr( 'onClick', 'go_mark_seen("' + date + '", "unseen"); go_change_seen("' + date + '", "unseen", this);' );
 	}
@@ -507,17 +559,17 @@ function go_add_uploader() {
 //	Grabs substring in the middle of the string object that getMid() is being called from.
 //	Takes two strings, one from the left and one from the right.
 String.prototype.getMid = function( str_1, str_2 ) {
-	if ( typeof( str_1 ) === 'string' && typeof( str_2 ) === 'string' ) {
+	if ( 'string' === typeof( str_1 ) && 'string' === typeof( str_2 ) ) {
 		var start = str_1.length;
 		var substr_length = this.length - ( str_1.length + str_2.length );
 		var substr = this.substr( start, substr_length );
 		return substr;
 	} else {
-		if ( typeof( str_1 ) !== 'string' && typeof( str_2 ) !== 'string' ) {
+		if ( 'string' !== typeof( str_1 ) && 'string' !== typeof( str_2 ) ) {
 			console.error("String.prototype.getMid expects two strings as args.");
-		} else if ( typeof( str_1 ) !== 'string' ) {
+		} else if ( 'string' !== typeof( str_1 ) ) {
 			console.error("String.prototype.getMid expects 1st arg to be string.");
-		} else if ( typeof( str_2 ) !== 'string' ) {
+		} else if ( 'string' !== typeof( str_2 ) ) {
 			console.error("String.prototype.getMid expects 2nd arg to be string.");
 		}
 	}

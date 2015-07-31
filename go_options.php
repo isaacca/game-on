@@ -14,41 +14,41 @@ if ( is_admin() ) {
 	
 	function go_options_accordion_help( $video_url = null, $explanation = null ) {
 		?>
-        <a class='go_options_help_link' href='#' onclick='go_display_help_video( "<?php echo $video_url; ?>" )' tooltip='<?php echo $explanation; ?>'>
+		<a class='go_options_help_link' href='#' onclick='go_display_help_video( "<?php echo $video_url; ?>" )' tooltip='<?php echo $explanation; ?>'>
 			<div class='go_options_accordion_help_wrap'>
-                <div class='go_options_accordion_help_text_wrap'>
-                	<span class='go_options_accordion_help' href='javascript:;' onclick=''>?</span>
-                </div>
-            </div>
-        </a>
-        <?php	
+				<div class='go_options_accordion_help_text_wrap'>
+					<span class='go_options_accordion_help' href='javascript:;' onclick=''>?</span>
+				</div>
+			</div>
+		</a>
+		<?php	
 	}
 	
 	function go_options_help( $video_url = null, $explanation = null, $help = true ) {
 		?>
-    	<a class='go_options_help_link <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>' href='javascript:;' onclick='go_display_help_video( "<?php echo $video_url; ?>" )' tooltip='<?php echo $explanation; ?>'>
+		<a class='go_options_help_link <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>' href='javascript:;' onclick='go_display_help_video( "<?php echo $video_url; ?>" )' tooltip='<?php echo $explanation; ?>'>
 			<div class='go_options_help_wrap <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>'>
-                <div class='go_options_help_text_wrap <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>'>
-                    <span class='go_options_help <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>' href='javascript:;' onclick=''>?</span>
-                </div>
-             </div>
-         </a>
-        <?php
+				<div class='go_options_help_text_wrap <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>'>
+					<span class='go_options_help <?php if ( ! $help ) { echo 'go_options_no_help'; } ?>' href='javascript:;' onclick=''>?</span>
+				</div>
+			 </div>
+		 </a>
+		<?php
 	}
 	
 	function go_options_field( $title, $fields, $field_args, $video_url = null, $explanation = null ) {
 		?> 
-        <div class='go_options'>
+		<div class='go_options'>
 			<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $title; go_options_help( $video_url, $explanation ); ?></span></div>
 			<?php
-            for ( $i = 1; $i <= $fields; $i++ ) {
-                ?>
-                    <?php if ( $field_args[ $i ]=='go_video_width' ) { echo '<span id="go_options_video_dim">Width: </span>';} elseif ( $field_args[ $i ]=='go_video_height' ) { echo '<span id="go_options_video_dim">Height: </span>'; } ?><input type='text' class='go_options_input' name='<?php echo $field_args[ $i ]; ?>' value='<?php echo get_option( $field_args[ $i ] )?>' /><?php if ( $field_args[ $i ] == 'go_video_width' || $field_args[ $i ] =='go_video_height' ) { echo '<span id="go_options_video_dim">px</span>'; } ?>
-                <?php	
-            }
-            ?>
-        </div>
-        <?php
+			for ( $i = 1; $i <= $fields; $i++ ) {
+				?>
+					<?php if ( $field_args[ $i ]=='go_video_width' ) { echo '<span id="go_options_video_dim">Width: </span>';} elseif ( $field_args[ $i ]=='go_video_height' ) { echo '<span id="go_options_video_dim">Height: </span>'; } ?><input type='text' class='go_options_input' name='<?php echo $field_args[ $i ]; ?>' value='<?php echo get_option( $field_args[ $i ] )?>' /><?php if ( $field_args[ $i ] == 'go_video_width' || $field_args[ $i ] =='go_video_height' ) { echo '<span id="go_options_video_dim">px</span>'; } ?>
+				<?php	
+			}
+			?>
+		</div>
+		<?php
 	}	
 	
 	function go_options_input( $title, $type, $name, $video_url, $explanation, $help = true, $reset = null ) {
@@ -71,10 +71,10 @@ if ( is_admin() ) {
 		}
 
 		?>
-        <div class="wrap go_wrap">
+		<div class="wrap go_wrap">
 		<h2>Game On Options</h2>
 		<a href='http://maclab.guhsd.net/game-on' target='_blank'>Documentation Page</a>
-        <form method="post" action="options.php" id="go_options_form">
+		<form method="post" action="options.php" id="go_options_form">
 			<?php 
 			wp_nonce_field( 'update-options' ); 
 			?>
@@ -83,9 +83,9 @@ if ( is_admin() ) {
 			go_options_input( 'Admin Email','text', 'go_admin_email', go_get_help_video_url('go_admin_email_help'), 'IMPORTANT: Enter your email and click the Save Options button' );
 			?>
 			</div>
-             <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( go_get_help_video_url('go_naming_conventions'), 'Customize the names used for tasks, points, currency, etc.' ); ?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
-             	<div id='go_options_naming_conventions_wrap' class='go_options_wrap'>
-             		<?php 
+			 <div class='go_options_accordion_wrap' opt='0'><?php go_options_accordion_help( go_get_help_video_url('go_naming_conventions', 'Customize the names used for tasks, points, currency, etc.' ); ?><div class='go_options_accordion'>Naming Conventions<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+				<div id='go_options_naming_conventions_wrap' class='go_options_wrap'>
+					<?php 
 						go_options_field( 'Tasks', 2, array( 1 => 'go_tasks_name', 2 => 'go_tasks_plural_name' ), go_get_help_video_url('go_tasks_help'), 'Name your assignments' ); 
 						go_options_field( 'Stages', 5, array( 1 => 'go_first_stage_name', 2 => 'go_second_stage_name', 3 => 'go_third_stage_name', 4 => 'go_fourth_stage_name', 5 => 'go_fifth_stage_name' ), go_get_help_video_url('go_stages_help'), 'Name the steps within your assignments' );
 						go_options_field( 'Stage Buttons', 5, array( 1 => 'go_abandon_stage_button', 2 => 'go_second_stage_button', 3 => 'go_third_stage_button', 4 => 'go_fourth_stage_button', 5 => 'go_fifth_stage_button' ), go_get_help_video_url('go_stages_buttons_help'), 'Name the buttons associated with each step in your assignments' );
@@ -97,17 +97,17 @@ if ( is_admin() ) {
 						go_options_field( 'Bonus', 3, array( 1 => 'go_bonus_currency_name', 2 => 'go_bonus_currency_prefix', 3 => 'go_bonus_currency_suffix' ), go_get_help_video_url('go_bonus_help'), 'Name your bonus mechanism' );
 						go_options_field( 'Penalty', 3, array( 1 => 'go_penalty_name', 2 => 'go_penalty_prefix', 3 => 'go_penalty_suffix' ), go_get_help_video_url('go_penalty_help'), 'Name your penalty mechanism' );
 						go_options_field( 'Minutes', 3, array( 1 => 'go_minutes_name', 2 => 'go_minutes_prefix', 3 => 'go_minutes_suffix' ), go_get_help_video_url('go_minutes_help'), 'Name your timing mechanism' );
-						go_options_field( 'Ranks', 2, array( 1 => 'go_level_names', 2 => 'go_level_plural_names' ),go_get_help_video_url('go_ranks_help'), 'Name your leveling system' );
-						go_options_field( 'Classifications', 3, array( 1 => 'go_organization_name', 2 => 'go_class_a_name', 3 => 'go_class_b_name' ),go_get_help_video_url('go_classifications_help'), 'Name your classroom management system' );
-						go_options_field( 'Focus', 1, array( 1 => 'go_focus_name' ),go_get_help_video_url('go_focus_help'), 'Name your sub-groups' );
+						go_options_field( 'Ranks', 2, array( 1 => 'go_level_names', 2 => 'go_level_plural_names' ), go_get_help_video_url('go_ranks_help'), 'Name your leveling system' );
+						go_options_field( 'Classifications', 3, array( 1 => 'go_organization_name', 2 => 'go_class_a_name', 3 => 'go_class_b_name' ), go_get_help_video_url('go_classifications_help'), 'Name your classroom management system' );
+						go_options_field( 'Focus', 1, array( 1 => 'go_focus_name' ), go_get_help_video_url('go_focus_help'), 'Name your sub-groups' );
 						go_options_field( 'Stats', 1, array( 1 => 'go_stats_name' ), go_get_help_video_url('go_stats_help'), 'Name your data display mechanism' );
 						go_options_field( 'Inventory', 1, array( 1 => 'go_inventory_name' ), go_get_help_video_url('go_inventory_help'), 'Name your purchased items category' );
 						go_options_field( 'Badges', 1, array( 1 => 'go_badges_name' ), go_get_help_video_url('go_badges_help'), 'Name your badging system' );
 						go_options_field( 'Leaderboard', 1, array( 1 => 'go_leaderboard_name' ), go_get_help_video_url('go_leaderboard_help'), 'Name your leaderboard' );
 						
 					?>
-                </div>
-             <div class='go_options_accordion_wrap' opt='1'><?php go_options_accordion_help( go_get_help_video_url('go_loot_presets_help'), 'Customize rewards earned within your game' ); ?><div class='go_options_accordion'>Loot Presets<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
+				</div>
+			 <div class='go_options_accordion_wrap' opt='1'><?php go_options_accordion_help( go_get_help_video_url('go_loot_presets_help'), 'Customize rewards earned within your game' ); ?><div class='go_options_accordion'>Loot Presets<div class='go_triangle_container'><div class='go_options_triangle'></div></div></div></div>
 				<div id='go_options_loot_presets_wrap' class='go_options_wrap'>
 					<?php
 						$presets = get_option( 'go_presets',false );
@@ -272,8 +272,8 @@ if ( is_admin() ) {
 					$computer_name = get_option( 'go_class_b_name' );
 					?>
 					<div id='go_options_periods_wrap'>
-                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $period_name; go_options_help( go_get_help_video_url('go_periods_help'),'Name the first sorting method' ); ?></span></div>							
-                        <div id='go_options_periods'>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $period_name; go_options_help( go_get_help_video_url('go_periods_help'),'Name the first sorting method' ); ?></span></div>							
+						<div id='go_options_periods'>
 					<?php
 					foreach ( $class_a as $key => $period ) {
 						?>
@@ -288,8 +288,8 @@ if ( is_admin() ) {
 						<button type="button"  class='go_add_period'>+</button>
 					</div>
 					<div id='go_options_computers_wrap'>
-                        <div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $computer_name; go_options_help( go_get_help_video_url('go_computer_help'),'Name the second sorting method' ); ?></span></div>
-                        <div id='go_options_computers'>
+						<div class='go_options_field_title_wrap'><span class='go_options_field_title'><?php echo $computer_name; go_options_help( go_get_help_video_url('go_computer_help'),'Name the second sorting method' ); ?></span></div>
+						<div id='go_options_computers'>
 					<?php
 					foreach ( $class_b as $key => $computer ) {
 						?>
@@ -366,16 +366,16 @@ if ( is_admin() ) {
 			<input type="submit" name="Submit" value="Save Options" />
 			<input type="hidden" name="action" value="update" />
 			<input type="hidden" name="page_options" value="go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_use_maclab_help, go_data_reset_switch"/>
-        </form>
-        </div>
-        <?php	
+		</form>
+		</div>
+		<?php	
 	}
 
 }
 
 add_action( 'admin_menu', 'add_game_on_options' );
 function add_game_on_options() {  
-    add_menu_page   ( 'Game On', 'Game On', 'manage_options', 'game-on-options.php','game_on_options', plugins_url( 'images/ico.png' , __FILE__ ), '81' );  
+	add_menu_page   ( 'Game On', 'Game On', 'manage_options', 'game-on-options.php','game_on_options', plugins_url( 'images/ico.png' , __FILE__ ), '81' );  
 	add_submenu_page( 'game-on-options.php', 'Options', 'Options', 'manage_options', 'game-on-options.php', 'game_on_options' );
 
 }
@@ -654,67 +654,68 @@ function go_extra_profile_fields( $user ) { ?>
 
 	<h3><?php echo go_return_options( 'go_class_a_name' ).' and '.go_return_options( 'go_class_b_name' ); ?></h3>
 
-    <table id="go_user_form_table">
-        <th><?php echo go_return_options( 'go_class_a_name' ); ?></th><th><?php echo go_return_options( 'go_class_b_name' ); ?></th>
-        <tbody id="go_user_form_table_body">
-            <?php
-            if ( get_user_meta( $user->ID, 'go_classifications', true ) ) { 
-            	foreach ( get_user_meta( $user->ID, 'go_classifications', true ) as $keyu => $valueu ) {
-            ?>
-                    <tr>
-                        <td>
-                            <?php 
-                            $class_a = get_option( 'go_class_a', false );
-                            if ( $class_a ) {
-                            ?>
-                                <select name="class_a_user[]"><option name="<?php echo $keyu; ?>" value="<?php echo $keyu; ?>"><?php echo $keyu; ?></option>
-                                <option value="go_remove">Remove</option>
-                                <?php
-                                foreach ( $class_a as $key => $value ) {
-                                    echo "<option name='{$value}' value='{$value}'>{$value}</option>";
-                                }
-                                ?>
-                                </select>
-                            <?php
-                            } 
-                            ?>	
-                        </td>
-                        <td>
-                            <?php 
-                            $class_b = get_option( 'go_class_b', false );
-                            if ( $class_b ) {
-                                ?> 
-                                <select name="class_b_user[]"><option name="<?php echo $valueu; ?>" value="<?php echo $valueu; ?>"><?php echo $valueu; ?></option>
-                                <option value="go_remove">Remove</option>
-                                <?php
-                                foreach ( $class_b as $key => $value ) {
-                                    echo "<option name='{$value}' value='{$value}'>{$value}</option>";
-                                }
-                                ?>
-                                </select>
-                                <?php
-                            } 
-                            ?>	
-                        </td> 
-                    </tr>
-			<?php }} ?> 
-        </tbody>
-        <tr> 
-        	<td><button onclick="go_add_class();" type="button">+</button></td>
-        </tr>
-    </table>
+	<table id="go_user_form_table">
+		<th><?php echo go_return_options( 'go_class_a_name' ); ?></th><th><?php echo go_return_options( 'go_class_b_name' ); ?></th>
+		<tbody id="go_user_form_table_body">
+			<?php
+			if ( get_user_meta( $user->ID, 'go_classifications', true ) ) {
+				foreach ( get_user_meta( $user->ID, 'go_classifications', true ) as $keyu => $valueu ) {
+			?>
+					<tr>
+						<td>
+							<?php
+							$class_a = get_option( 'go_class_a', false );
+							if ( $class_a ) {
+							?>
+								<select name="class_a_user[]"><option name="<?php echo $keyu; ?>" value="<?php echo $keyu; ?>"><?php echo $keyu; ?></option>
+								<option value="go_remove">Remove</option>
+								<?php
+								foreach ( $class_a as $key => $value ) {
+									echo "<option name='{$value}' value='{$value}'>{$value}</option>";
+								}
+								?>
+								</select>
+							<?php
+							}
+							?>
+						</td>
+						<td>
+							<?php 
+							$class_b = get_option( 'go_class_b', false );
+							if ( $class_b ) {
+								?>
+								<select name="class_b_user[]"><option name="<?php echo $valueu; ?>" value="<?php echo $valueu; ?>"><?php echo $valueu; ?></option>
+								<option value="go_remove">Remove</option>
+								<?php
+								foreach ( $class_b as $key => $value ) {
+									echo "<option name='{$value}' value='{$value}'>{$value}</option>";
+								}
+								?>
+								</select>
+								<?php
+							}
+							?>
+						</td>
+					</tr>
+			<?php
+				}
+			}
+			?>
+		</tbody>
+		<tr> 
+			<td><button onclick="go_add_class();" type="button">+</button></td>
+		</tr>
+	</table>
 	<?php 
 		if ( get_option( 'go_focus_switch', true ) == 'On' ) {
 			echo "<h3>User ".go_return_options( 'go_focus_name' )."</h3>".go_display_user_focuses( $user->ID )."";
 		}
-    ?>
-    <script type="text/javascript" language="javascript">
+	?>
+	<script type="text/javascript" language="javascript">
 		function go_add_class() {
-			var ajaxurl = "<?php global $wpdb;
-			echo admin_url( 'admin-ajax.php' ) ; ?>";
 			jQuery.ajax({
-				type: "post",
-				url: ajaxurl,
+				type: 'post',
+				url: MyAjax.ajaxurl,
 				data: { 
 					action: 'go_user_option_add',
 					go_clipboard_class_a_choice: jQuery( '#go_clipboard_class_a_choice' ).val()
@@ -724,7 +725,7 @@ function go_extra_profile_fields( $user ) { ?>
 				}
 			});
 		}
-    </script>
+	</script>
 <?php
 
 }
@@ -734,46 +735,47 @@ add_action( 'edit_user_profile_update', 'go_save_extra_profile_fields' );
 
 function go_user_option_add() {
 	?> 
-    <tr>
-        <td>
+	<tr>
+		<td>
 			<?php 
-            $class_a = get_option( 'go_class_a', false );
-            if ( $class_a ) {
+			$class_a = get_option( 'go_class_a', false );
+			if ( $class_a ) {
 				?>
 				<select name="class_a_user[]">
-                    <option value="go_remove">Remove</option>
-                    <?php
-                    foreach( $class_a as $key => $value ) {
-                    	echo "<option name='{$value}' value='{$value}'>{$value}</option>";
-                    }
-                    ?>
+					<option value="go_remove">Remove</option>
+					<?php
+					foreach( $class_a as $key => $value ) {
+						echo "<option name='{$value}' value='{$value}'>{$value}</option>";
+					}
+					?>
 				</select>
 			<?php 
 			} 
 			?>	
-        </td>
-        <td>
+		</td>
+		<td>
 			<?php 
 			$class_b = get_option( 'go_class_b', false );
-            if ( $class_b ) {
+			if ( $class_b ) {
 				?>
 				<select name="class_b_user[]">
-				<option value="go_remove">Remove</option>
-				<?php
-				foreach( $class_b as $key => $value ) {
-					"<option name='{$value}' value='{$value}'>{$value}</option>";
-				}
-				?>
-            </select>
+					<option value="go_remove">Remove</option>
+					<?php
+					foreach( $class_b as $key => $value ) {
+						echo "<option name='{$value}' value='{$value}'>{$value}</option>";
+					}
+					?>
+				</select>
 			<?php
-            } 
+			} 
 			?>	
-        </td> 
-    </tr>  
+		</td> 
+	</tr>  
 	<?php
 }
 	
 function go_save_extra_profile_fields( $user_id ) {
+	$class = array();
 	if ( isset( $_POST['class_a_user'] ) ) {
 		foreach ( $_POST['class_a_user'] as $key => $value ) {
 			if ( $value != 'go_remove' ) {
@@ -789,7 +791,7 @@ function go_save_extra_profile_fields( $user_id ) {
 function go_update_globals() {
 	global $wpdb;
 	$file_name = $real_file = plugin_dir_path( __FILE__ ) . '/' . 'go_definitions.php';
-	$array = explode( ',', 'go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_use_maclab_help, go_data_reset_switch' );
+	$array = explode( ',', 'go_tasks_name, go_tasks_plural_name, go_first_stage_name, go_second_stage_name, go_third_stage_name, go_fourth_stage_name, go_fifth_stage_name, go_abandon_stage_button, go_second_stage_button, go_third_stage_button, go_fourth_stage_button, go_fifth_stage_button, go_store_name, go_task_loot_name, go_bonus_loot_name, go_task_pod, go_points_name, go_points_prefix, go_points_suffix, go_currency_name, go_currency_prefix, go_currency_suffix, go_bonus_currency_name, go_bonus_currency_prefix, go_bonus_currency_suffix, go_penalty_name, go_penalty_prefix, go_penalty_suffix, go_minutes_name, go_minutes_prefix, go_minutes_suffix, go_level_names, go_level_plural_names, go_organization_name, go_class_a_name, go_class_b_name, go_focus_name, go_stats_name, go_inventory_name, go_badges_name, go_leaderboard_name, go_presets, go_admin_bar_display_switch, go_admin_bar_user_redirect, go_admin_bar_add_switch, go_admin_bar_add_minutes_switch, go_ranks, go_class_a, go_class_b, go_focus_switch, go_focus, go_admin_email, go_video_width, go_video_height, go_email_from, go_store_receipt_switch, go_full_student_name_switch, go_multiplier_switch, go_multiplier_threshold, go_penalty_switch, go_penalty_threshold, go_multiplier_percentage, go_use_maclab_help, go_data_reset_switch' );
 	$string = '';
 	foreach ( $array as $key => $value ) {
 		$value = trim( $value );

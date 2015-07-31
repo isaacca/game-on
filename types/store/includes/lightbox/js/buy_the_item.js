@@ -29,6 +29,7 @@ function goBuytheItem( id, buyColor, count ) {
 				} else {
 					buy.innerHTML = '';
 					go_sounds( 'store' );
+					
 					// This checks for the existance of a <script> block in the "response" variable.
 					// The index is used to split the "response" message, into a string for notifications,
 					// and one for everything else.

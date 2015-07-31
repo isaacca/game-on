@@ -3,9 +3,9 @@
 Plugin Name: Game-On
 Plugin URI: http://maclab.guhsd.net/game-on
 Description: Gamification tools for teachers.
-Author: Authors: Ezio Ballarin, Forest Hoffman, Austin Vuong, Charles Leon; Previous Authors: Semar Yousif, Vincent Astolfi
-Author URI: http://maclab.guhsd.net/
-Version: 2.4.6
+Author: Valhalla Mac Lab
+Author URI: https://github.com/TheMacLab/game-on/blob/master/README.md
+Version: 2.4.10-a
 */
 
 include( 'go_datatable.php' );
@@ -29,6 +29,7 @@ include( 'go_mail.php' );
 include( 'go_messages.php' );
 include( 'go_task_search.php' );
 include( 'go_constants.php' );
+include( 'go_pods.php' );
 register_activation_hook( __FILE__, 'go_table_totals' );
 register_activation_hook( __FILE__, 'go_table_individual' );
 register_activation_hook( __FILE__, 'go_ranks_registration' );
@@ -36,6 +37,7 @@ register_activation_hook( __FILE__, 'go_presets_registration' );
 register_activation_hook( __FILE__, 'go_install_data' );
 register_activation_hook( __FILE__, 'go_define_options' );
 register_activation_hook( __FILE__, 'go_open_comments' );
+register_activation_hook( __FILE__, 'go_tsk_actv_activate' );
 add_action( 'user_register', 'go_user_registration' );
 add_action( 'delete_user', 'go_user_delete' );
 add_action( 'wp_ajax_go_deactivate_plugin', 'go_deactivate_plugin' );
@@ -60,6 +62,8 @@ add_action( 'wp_ajax_go_clipboard_intable_messages','go_clipboard_intable_messag
 add_action( 'wp_ajax_go_user_option_add','go_user_option_add' );
 add_action( 'go_update_totals','go_update_totals' );
 add_action( 'init', 'go_jquery' );
+add_action( 'init', 'go_admin_menu_js' );
+add_action( 'init', 'go_register_tax_and_cpt' );
 add_action( 'wp', 'go_task_timer_headers' );
 add_action( 'admin_bar_init','go_global_defaults' );
 add_action( 'admin_bar_init','go_global_info' );
@@ -110,8 +114,8 @@ add_action( 'wp_ajax_go_search_for_user', 'go_search_for_user' );
 add_action( 'wp_ajax_go_admin_remove_notification', 'go_admin_remove_notification' );
 add_action( 'wp_ajax_go_get_purchase_count', 'go_get_purchase_count' );
 add_shortcode( 'go_stats_page', 'go_stats_page' );
-register_activation_hook(__FILE__, 'go_tsk_actv_activate' );
 add_action( 'admin_init', 'go_tsk_actv_redirect' );
+add_action( 'admin_init', 'go_add_delete_post_hook' );
 add_action( 'inRange', 'inRange' );
 add_action( 'isEven','isEven' );
 add_action( 'wp_head', 'go_stats_overlay' );
@@ -148,10 +152,40 @@ function go_tsk_actv_activate() {
 function go_tsk_actv_redirect() {
 	if ( get_option( 'go_tsk_actv_do_activation_redirect', false ) ) {
 		delete_option( 'go_tsk_actv_do_activation_redirect' );
-		if( ! isset( $_GET['activate-multi'] ) ) {
+		if ( ! isset( $_GET['activate-multi'] ) ) {
 			wp_redirect( 'admin.php?page=game-on-options.php&settings-updated=true' );
 		}
 	}
+}
+
+function go_add_delete_post_hook() {
+	if ( current_user_can( 'delete_posts' ) ) {
+		add_action( 'delete_post', 'go_delete_cpt_data' );
+	}
+}
+
+function go_delete_cpt_data( $cpt_id ) {
+	global $wpdb;
+	if ( "tasks" == get_post_type( $cpt_id ) || "go_store" == get_post_type( $cpt_id ) ) {
+		$cpt_to_delete = $wpdb->get_var( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}go WHERE post_id = %d", $cpt_id ) );
+		if ( $cpt_to_delete ) {
+			return $wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->prefix}go WHERE post_id = %d", $cpt_id ) );
+		}
+	}
+	return true;
+}
+
+/* 
+ * Registers Game On custom post types and taxonomies, then
+ * updates the site's rewrite rules to mitigate cpt and 
+ * permalink conflicts. flush_rewrite_rules() must always
+ * be called AFTER custom post types and taxonomies are
+ * registered.
+ */
+function go_register_tax_and_cpt() {
+	go_register_task_tax_and_cpt();
+	go_register_store_tax_and_cpt();
+	flush_rewrite_rules();
 }
 
 function inRange( $int, $min, $max ) {

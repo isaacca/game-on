@@ -254,11 +254,48 @@ function go_admin_bar() {
 
 			$wp_admin_bar->add_node(
 				array(
-					'id' => 'go_nav_plugins',
-					'title' => 'Plugins',
-					'href' => get_admin_url().'plugins.php',
+					'id' => 'go_nav_posts',
+					'title' => 'Posts',
+					'href' => esc_url( get_admin_url() ).'edit.php',
 					'parent' => 'appearance'
 				) 
+			);
+
+			$wp_admin_bar->add_node(
+				array(
+					'id' => 'go_nav_pages',
+					'title' => 'Pages',
+					'href' => esc_url( get_admin_url() ).'edit.php?post_type=page',
+					'parent' => 'appearance'
+				) 
+			);
+
+			$wp_admin_bar->add_node(
+				array(
+					'id' => 'go_nav_media',
+					'title' => 'Media',
+					'href' => esc_url( get_admin_url() ).'upload.php',
+					'parent' => 'appearance'
+				) 
+			);
+
+			$wp_admin_bar->add_node(
+				array(
+					'id' => 'go_nav_plugins',
+					'title' => 'Plugins',
+					'href' => esc_url( get_admin_url() ).'plugins.php',
+					'parent' => 'appearance'
+				) 
+			);
+			
+			$wp_admin_bar->add_node(
+				array(
+					'id' => 'go_nav_pods',
+					'title' => get_option('go_tasks_name').' Pods',
+					'href' => esc_url( get_admin_url() ).'admin.php?page=go_pods',
+					'parent' => 'go_site_name_menu',
+					'meta' => array( 'class' => 'go_site_name_menu_item' )
+				)
 			);
 		}
 		echo $ranks_output;

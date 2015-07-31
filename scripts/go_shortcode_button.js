@@ -13,6 +13,7 @@
 				{ text: '[go_lastname]', onclick: function() { go_tinymce_insert_content( editor, '[go_lastname]' ); } },
 				{ text: '[go_loginname]', onclick: function() { go_tinymce_insert_content( editor, '[go_loginname]' ); } },
 				{ text: '[go_display_video video_url]', onclick: function() { go_tinymce_insert_content( editor, '[go_display_video video_url="" video_title="" width="" height=""]' ); } },
+				{ text: '[go_display_image image_url]', onclick: function() {go_tinymce_insert_content( editor, '[go_display_image image_url="" image_title="" width="" height=""]' ); } },
 				{ text: '[go_user_only_content]', onclick: function() { go_tinymce_insert_content( editor, '[go_user_only_content][/go_user_only_content]' ); } },
 				{ text: '[go_visitor_only_content]', onclick: function() { go_tinymce_insert_content( editor, '[go_visitor_only_content][/go_visitor_only_content]' ); } },
 				{ text: '[go_admin_only_content]', onclick: function() { go_tinymce_insert_content( editor, '[go_admin_only_content][/go_admin_only_content]' ); } },

@@ -106,6 +106,49 @@ function go_display_video( $atts, $video_url ) {
 }
 add_shortcode( 'go_display_video', 'go_display_video' );
 
+function go_display_image( $atts, $image_url ) {
+	$atts = shortcode_atts(
+			array(
+					'image_url' => '',
+					'image_title' => '',
+					'height' => '',
+					'width' => '',
+			),
+			$atts
+	);
+	$image_url = ( ! empty ( $image_url ) ? $image_url : $atts['image_url'] );
+	$image_title = $atts['image_title'];
+	if ( $image_url ) {
+		if ( $atts['height'] && $atts['width'] ) {
+			?>
+    	<script type="text/javascript"> 
+			jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'width': '<?php echo $atts['width']; ?>px'});
+		</script>
+        <?php	
+		}
+		if ( $atts['height'] ) {
+		?>
+		<script type="text/javascript"> 
+            jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'margin-top': '-<?php echo $atts['height']/2; ?>px'});
+        </script>
+        <?php
+		} 
+		if ( $atts['width'] ) {
+		?>
+		<script type="text/javascript"> 
+            jQuery( '.light' ).css({'width': '<?php echo $atts['width']; ?>px', 'margin-left': '-<?php echo $atts['width']/2; ?>px'});
+        </script>
+        <?php
+		}
+		if ( $image_title ) {
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." );'>{$image_title}</a>";	
+		} else {
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." );'>video</a>";	
+		}
+	}
+}
+add_shortcode( 'go_display_image', 'go_display_image' );
+
 //Function that grabs the current page
 function go_page_grabber_shortcode() { 
 	echo '';

@@ -95,12 +95,19 @@ function go_display_help_video( url ) {
 	if ( -1 != url.indexOf( 'youtube.com' ) || -1 != url.indexOf( 'vimeo.com' ) || -1 != url.indexOf( 'youtu.be' ) ) {
 		//specific to YouTube
 		if ( -1 != url.indexOf( 'youtube.com' ) || -1 != url.indexOf( 'youtu.be' ) ) {
-			//convert long YouTube links to embedable long YouTube links
-			if( -1 != url.indexOf( 'youtube.com' ) ){url = url.replace( 'watch?v=', 'embed/' );}
+			//convert long YouTube links to embedable long YouTube links, including if the link has 2+ parameters
+			if( -1 != url.indexOf( 'youtube.com' ) ){
+				url = url.replace( 'watch?v=', 'embed/' );
+				url = url.replace( '&', '?');
+				}
 			//convert short YouTube links to long embedable YouTube links
 			if( -1 != url.indexOf( 'youtu.be' ) ){url = url.replace('youtu.be/','youtube.com/embed/')}
-			//come up with the embed code and set the video to autoplay without related videos at the end
-			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
+			//come up with the embed code and set the video to autoplay without related videos at the end, taking into account if the URL still has a parameter in it
+			if( -1 != url.indexOf( '?' )){
+				jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
+			}else{
+				jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
+			}
 		}
 		//Specific to Vimeo
 		if ( -1 != url.indexOf( 'vimeo.com' ) ) {

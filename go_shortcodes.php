@@ -75,32 +75,16 @@ function go_display_video( $atts, $video_url ) {
 	);
 	$video_url = ( ! empty ( $video_url ) ? $video_url : $atts['video_url'] );
 	$video_title = $atts['video_title'];
+	$width = $atts['width'];
+	if('' == $width){ $width = get_option('go_video_width'); }
+	$height = $atts['height'];
+	if('' == $height){ $height = get_option('go_video_height'); }
 	if ( $video_url ) {
-		if ( $atts['height'] && $atts['width'] ) {
-		?>
-    	<script type="text/javascript"> 
-			jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'width': '<?php echo $atts['width']; ?>px'});
-		</script>
-        <?php	
-		}
-		if ( $atts['height'] ) {
-		?>
-		<script type="text/javascript"> 
-            jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'margin-top': '-<?php echo $atts['height']/2; ?>px'});
-        </script>
-        <?php
-		} 
-		if ( $atts['width'] ) {
-		?>
-		<script type="text/javascript"> 
-            jQuery( '.light' ).css({'width': '<?php echo $atts['width']; ?>px', 'margin-left': '-<?php echo $atts['width']/2; ?>px'});
-        </script>
-        <?php
-		}
+		
 		if ( $video_title ) {
-			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$video_url.'\'' )." );'>{$video_title}</a>";	
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$video_url.'\'' )." , {$width}, {$height} );'>{$video_title}</a>";	
 		} else {
-			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$video_url.'\'' )." );'>video</a>";	
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$video_url.'\'' )." , {$width}, {$height} );'>video</a>";	
 		}
 	}
 }
@@ -118,32 +102,16 @@ function go_display_image( $atts, $image_url ) {
 	);
 	$image_url = ( ! empty ( $image_url ) ? $image_url : $atts['image_url'] );
 	$image_title = $atts['image_title'];
-	if ( $image_url ) {
-		if ( $atts['height'] && $atts['width'] ) {
-			?>
-    	<script type="text/javascript"> 
-			jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'width': '<?php echo $atts['width']; ?>px'});
-		</script>
-        <?php	
-		}
-		if ( $atts['height'] ) {
-		?>
-		<script type="text/javascript"> 
-            jQuery( '.light' ).css({'height': '<?php echo $atts['height']; ?>px', 'margin-top': '-<?php echo $atts['height']/2; ?>px'});
-        </script>
-        <?php
-		} 
-		if ( $atts['width'] ) {
-		?>
-		<script type="text/javascript"> 
-            jQuery( '.light' ).css({'width': '<?php echo $atts['width']; ?>px', 'margin-left': '-<?php echo $atts['width']/2; ?>px'});
-        </script>
-        <?php
-		}
-		if ( $image_title ) {
-			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." );'>{$image_title}</a>";	
+	$width = $atts['width'];
+	if('' == $width){ $width = get_option('go_video_width'); }
+	$height = $atts['height'];
+	if('' == $height){ $height = get_option('go_video_height'); }
+	if ( $video_url ) {
+		
+		if ( $video_title ) {
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." , {$width}, {$height} );'>{$image_title}</a>";	
 		} else {
-			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." );'>video</a>";	
+			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." , {$width}, {$height} );'>image</a>";	
 		}
 	}
 }

@@ -88,8 +88,14 @@ function hideVid() {
 /**
  * Display either a video (native, youtube, or vimeo) or an image in the help lightbox.
  * @param url URL to the content to display.
+ * @param width Lightbox width
+ * @param height Lightbox height
  */
-function go_display_help_video( url ) {
+function go_display_help_video( url, width, height) {
+	//this waits to set the dimmensions of the lightbox until immediatly before it is opened, preventing issues when there are multiple lightboxes on one page
+	margin_top = height / -2;
+	margin_left = width / -2;
+	jQuery( '.light' ).css( {'height': height + 'px', 'width': width + 'px', 'margin_left': margin_left + 'px', 'margin-top': margin_top + 'px'} );
 	jQuery( '.dark' ).show();
 	//Handle YouTube/Vimeo
 	if ( -1 != url.indexOf( 'youtube.com' ) || -1 != url.indexOf( 'vimeo.com' ) || -1 != url.indexOf( 'youtu.be' ) ) {
@@ -104,8 +110,11 @@ function go_display_help_video( url ) {
 			if( -1 != url.indexOf( 'youtu.be' ) ){url = url.replace('youtu.be/','youtube.com/embed/')}
 			//come up with the embed code and set the video to autoplay without related videos at the end, taking into account if the URL still has a parameter in it
 			if( -1 != url.indexOf( '?' )){
+				//I have no clue why this has to be set again, but it does... and only the left margin...
+				jQuery('.light').css({'margin-left': margin_left + 'px'});
 				jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'&rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
 			}else{
+				jQuery('.light').css({'margin-left': margin_left + 'px'});
 				jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" width="100%" height="100%" src="'+url+'?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>' );
 			}
 		}
@@ -113,11 +122,13 @@ function go_display_help_video( url ) {
 		if ( -1 != url.indexOf( 'vimeo.com' ) ) {
 			vimeo_vid_num = url.match( /\d+$/ )[0];
 			new_url = 'https://player.vimeo.com/video/' + vimeo_vid_num;
+			jQuery('.light').css({'margin-left': margin_left + 'px'});
 			jQuery( '#go_help_video_container' ).html( '<iframe id="go_video_iframe" src="' + new_url + '" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' );
 		}
 	}
 	//Handle Images
 	if(url.indexOf('.png') != -1 || url.indexOf('.jpg') != -1 || url.indexOf('.gif') != -1 || url.indexOf('.jpeg') != -1 || url.indexOf('.bmp') != -1 || url.indexOf('.svg') != -1){
+		jQuery('.light').css({'margin-left': margin_left + 'px'});
 		jQuery('#go_help_video_container').html('<img src="' + url + '" width="100%" height="100%" ></img>');
 	}
 	jQuery( '#go_help_video_container' ).show();
@@ -131,7 +142,7 @@ function go_display_help_video( url ) {
 			videoStatus = 'playing';
 		});
 	}
-
+	jQuery('.light').css({'margin-left': margin_left + 'px'});
 	jQuery( '.light' ).show();
 	if ( 'none' != jQuery( '.dark' ).css( 'display' ) ) {
 		jQuery(document).keydown( function( e ) { 

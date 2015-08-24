@@ -76,9 +76,9 @@ function go_display_video( $atts, $video_url ) {
 	$video_url = ( ! empty ( $video_url ) ? $video_url : $atts['video_url'] );
 	$video_title = $atts['video_title'];
 	$width = $atts['width'];
-	if('' == $width){ $width = get_option('go_video_width'); }
+	if('' == $width){ $width = get_option('go_video_width', '864'); }
 	$height = $atts['height'];
-	if('' == $height){ $height = get_option('go_video_height'); }
+	if('' == $height){ $height = get_option('go_video_height', '540'); }
 	if ( $video_url ) {
 		
 		if ( $video_title ) {
@@ -103,10 +103,10 @@ function go_display_image( $atts, $image_url ) {
 	$image_url = ( ! empty ( $image_url ) ? $image_url : $atts['image_url'] );
 	$image_title = $atts['image_title'];
 	$width = $atts['width'];
-	if('' == $width){ $width = get_option('go_video_width'); }
+	if('' == $width){ $width = get_option('go_video_width', '864'); }
 	$height = $atts['height'];
-	if('' == $height){ $height = get_option('go_video_height'); }
-	if ( $video_url ) {
+	if('' == $height){ $height = get_option('go_video_height', '540'); }
+	if ( $image_url ) {
 		
 		if ( $video_title ) {
 			return "<a href='javascript:;' onclick='go_display_help_video( ".esc_attr( '\''.$image_url.'\'' )." , {$width}, {$height} );'>{$image_title}</a>";	

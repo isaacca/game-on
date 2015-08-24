@@ -128,9 +128,47 @@ function go_display_help_video( url, width, height) {
 	}
 	//Handle Images
 	if(url.indexOf('.png') != -1 || url.indexOf('.jpg') != -1 || url.indexOf('.gif') != -1 || url.indexOf('.jpeg') != -1 || url.indexOf('.bmp') != -1 || url.indexOf('.svg') != -1){
+		//Load the image so we have it
 		jQuery('.light').css({'margin-left': margin_left + 'px'});
 		jQuery('#go_help_video_container').html('<img src="' + url + '" width="100%" height="100%" ></img>');
+		
+		//Then immediatly apply dynamic sizing
+		viewport_height = window.innerHeight;
+		viewport_width = window.innerWidth;
+		var img = new Image();
+		img.src = url;
+			//is the image equal or less than 90% of the viewport in both dimmensions?
+			if( img.width <= ( viewport_width * .9 ) && img.height <= ( viewport_height * .9 ) ){
+				margin_left = img.width / -2;
+				margin_top = img.height / -2;
+				//make the lightbox the size of the image
+				jQuery( '.light' ).css( {'height': img.height + 'px', 'width': img.width + 'px', 'margin_left': margin_left + 'px', 'margin-top': margin_top + 'px'} );
+				width = img.width;
+				height = img.height;
+			}
+			if( img.width > ( viewport_width * .9 ) || img.height > ( viewport_height * .9 ) ){
+				//keep the up to 90% rule on each dimmension
+				//TODO: Shrink both sides equally
+				if( img.width > viewport_width * .9){
+					width = viewport_width * .9;
+				}else{
+					width = img.width
+				}
+				if( img.height > viewport_height * .9){
+					height = viewport_height * .9;
+				}else{
+					height = img.height
+				}
+				margin_left = width / -2;
+				margin_top = height / -2;
+				jQuery( '.light' ).css( {'height': height + 'px', 'width': width + 'px', 'margin_left': margin_left + 'px', 'margin-top': margin_top + 'px'} );
+			}
+			jQuery('.light').css({'margin-left': margin_left + 'px'});
+			jQuery('#go_help_video_container').html('<img id="go_lightbox_image" src="' + url + '" width="' + (width - 20) + '" height="' + (height - 20) + '"></img>');
+		
+		
 	}
+	jQuery( '#go_lightbox_image' ).css({'height': height - 20 + 'px', 'width': width - 20 + 'px'});
 	jQuery( '#go_help_video_container' ).show();
 	//Handle native video
 	if ( 0 != jQuery( '#go_option_help_video' ).length ) {
